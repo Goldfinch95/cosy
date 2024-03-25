@@ -1,18 +1,42 @@
 <!--registro-->
 <section>
-    <div>
-        <h1>Registrarse</h1>
-    </div>
-    <div>
-        <input type="email">
-        <input type="text">
-        <input type="password">
-        <input type="password">
-    </div>
-    <div>
-        <button>Registrarse</button>
-    </div>
-    <div>
-        <h4>¿tienes una cuenta? <a href="">conéctate</a>.</h4>
-    </div>
+  <div>
+    <h1>Registrarse</h1>
+  </div>
+  <div>
+    <input
+      type="email"
+      [(ngModel)]="accountData.email"
+      [ngModelOptions]="{
+        standalone: true
+      }"
+      placeholder="Email"
+    />
+    <input
+      type="text"
+      [(ngModel)]="accountData.name"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="Nombre"
+    />
+    <input
+      type="password"
+      [(ngModel)]="accountData.password"
+      [ngModelOptions]="{
+        standalone: true
+      }"
+      placeholder="Contraseña"
+    />
+    <input
+      type="password"
+      [(ngModel)]="accountData.secondPassword"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="Repetir Contraseña"
+    />
+  </div>
+  <div>
+    <button (click)="checkIn()">Registrarse</button>
+  </div>
+  <div>
+    <h4>¿tienes una cuenta? <a routerLink="">conéctate</a>.</h4>
+  </div>
 </section>
