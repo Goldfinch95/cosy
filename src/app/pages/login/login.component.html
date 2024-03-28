@@ -1,42 +1,96 @@
-<!--title-->
-<section>
-  <div>
-    <h1>Cosy</h1>
-  </div>
-</section>
-<!--img-->
-<section>
-  <div>
-    <img src="../../../assets/login/login_img.png" alt="social-media-img" />
-  </div>
-</section>
-<!--login-->
-<section>
-  <div>
-    <h1>Conéctate</h1>
-  </div>
-  <div>
-    <h3>Debes conectarte para continuar.</h3>
-  </div>
-  <div>
-    <input
-      type="email"
-      [(ngModel)]="loginData.email"
-      [ngModelOptions]="{ standalone: true }"
-      placeholder="Email"
-    />
-    <input
-      type="password"
-      [(ngModel)]="loginData.password"
-      [ngModelOptions]="{ standalone: true }"
-      placeholder="Contraseña"
-    />
-    <button (click)="getInto()">Ingresar</button>
-  </div>
-  <div>
-    <h4>Olvidaste la contraseña?</h4>
-  </div>
-  <div>
-    <button><a routerLink="/register">Crea una nueva cuenta</a></button>
-  </div>
-</section>
+<div class="container d-flex flex-column justify-content-center">
+  
+  <!-- Title -->
+  <section>
+    <div>
+      <h1 class="title">Cosy</h1>
+    </div>
+  </section>
+  <!--image and card-->
+  <section>
+    <div class="row justify-content-around align-items-center">
+      <!--image container-->
+      <div class="col-md-6 col-lg-5">
+        <div class="d-flex justify-content-end">
+          <img
+          src="../../../assets/login/login_img.png"
+          alt="social-media-img"
+          class="img-fluid d-none d-md-block"
+        />
+        </div>
+      </div>
+      <!--card container-->
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <h1 class="text-center text-white mb-4">Conéctate</h1>
+            <!--form-->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && loginForm.controls['email'].errors }"
+                  placeholder="Email"
+                />
+                @if (submitted && loginForm.controls['email'].errors){
+                  <div class="text-danger mt-2">
+                    Se necesita de un <span>Email</span>.
+                  </div>
+                }
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors }"
+                  placeholder="Contraseña"
+                />
+                @if (submitted && loginForm.controls['password'].errors?.['required']){
+                  <div class="text-danger mt-2">
+                    Se necesita de una Contraseña.
+                  </div>
+                }
+                @if (submitted && loginForm.controls['password'].errors?.['minlength']){
+                  <div class="text-danger mt-2">
+                    Se necesita de una Contraseña de almenos 8 caracteres.
+                  </div>
+                }
+                @if ( submitted && loginForm.controls['password'].errors?.['pattern']){
+                  <div class="text-danger mt-2">
+                    Se necesita de una Contraseña que contenga al menos una letra minúscula,una letra mayúscula, un dígito y un carácter especial.
+                  </div>
+                }
+              </div>
+              <div class="mb-3">
+                <button
+                  class="btn btn-primary btn-lg btn-block w-100"
+                >
+                  Ingresar
+                </button>
+              </div>
+              <div class="mb-3 text-center">
+                <a href="#" class="text-info text-decoration-none"
+                  >¿Olvidaste la contraseña?</a
+                >
+              </div>
+            </form>
+            <hr />
+            <div class="text-center">
+              <button class="btn btn-info btn-lg btn-block">
+                <a
+                  routerLink="/register"
+                  class="text-white text-decoration-none"
+                  >Crea una nueva cuenta</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
