@@ -1,42 +1,72 @@
-<!--registro-->
-<section>
-  <div>
-    <h1>Registrarse</h1>
-  </div>
-  <div>
-    <input
-      type="email"
-      [(ngModel)]="accountData.email"
-      [ngModelOptions]="{
-        standalone: true
-      }"
-      placeholder="Email"
-    />
-    <input
-      type="text"
-      [(ngModel)]="accountData.name"
-      [ngModelOptions]="{ standalone: true }"
-      placeholder="Nombre"
-    />
-    <input
-      type="password"
-      [(ngModel)]="accountData.password"
-      [ngModelOptions]="{
-        standalone: true
-      }"
-      placeholder="Contraseña"
-    />
-    <input
-      type="password"
-      [(ngModel)]="accountData.secondPassword"
-      [ngModelOptions]="{ standalone: true }"
-      placeholder="Repetir Contraseña"
-    />
-  </div>
-  <div>
-    <button (click)="checkIn()">Registrarse</button>
-  </div>
-  <div>
-    <h4>¿tienes una cuenta? <a routerLink="">conéctate</a>.</h4>
+<section class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="col-md-4 d-flex justify-content-center">
+    <div class="card border-0" style="max-width: 350px; height: 613px" [ngClass]="{'h-auto': submitted && registerForm.invalid}">
+      <div class="card-body"style="margin: 0 20px;">
+        <h1 class=" title text-center text-white mb-4">Registrarse</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <hr style="border-top: 1px solid #DBDBDB; width: 100%;">
+          <div>
+          <div class="mb-3">
+            <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }"
+                  placeholder="Email"
+                />
+                @if (submitted && registerForm.controls['email'].errors){
+                  <div class="text-danger mt-2">
+                    Se necesita de un Email.
+                  </div>
+                }
+          </div>
+          <div class="mb-3">
+            <input type="text" formControlName="fullName" class="form-control " [ngClass]="{ 'is-invalid': submitted && registerForm.controls['fullName'].errors }" placeholder="Nombre completo">
+            @if (submitted && registerForm.controls['fullName'].errors){
+              <div class="text-danger mt-2">
+                Se necesita un nombre completo.
+              </div>
+            }
+          </div>
+          <div class="mb-3">
+            <input type="password" formControlName="password"  class="form-control " [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors }" placeholder="Contraseña">
+            @if (submitted && registerForm.controls['password'].errors?.['required']){
+              <div class="text-danger mt-2">
+                Se necesita de una Contraseña.
+              </div>
+            }
+            @if (submitted && registerForm.controls['password'].errors?.['minlength']){
+              <div class="text-danger mt-2">
+                Se necesita de una Contraseña de almenos 8 caracteres.
+              </div>
+            }
+            @if ( submitted && registerForm.controls['password'].errors?.['pattern']){
+              <div class="text-danger mt-2">
+                Se necesita de una Contraseña que contenga al menos una letra minúscula,una letra mayúscula, un dígito y un carácter especial.
+              </div>
+            }
+          </div>
+          <div class="mb-3">
+            <input type="password" formControlName="secondPassword"  class="form-control "[ngClass]="{ 'is-invalid': submitted && registerForm.controls['secondPassword'].errors }"  placeholder="Repetir contraseña">
+            @if (submitted && registerForm.controls['secondPassword'].errors?.['required']){
+              <div class="text-danger mt-2">
+                Se necesita que ambas contraseñas coincidan.
+              </div>
+            }
+          </div>
+        </div>
+          <button   class="btn btn-primary btn-lg btn-block  w-100 mb-lg-5"style="margin-top: 50px;" >Registrarse</button>
+        </form>
+        
+        <div class="mt-3 text-center">
+          
+          <hr style="border-top: 1px solid #DBDBDB; width: 100%;">
+          <a href="" class="text-info text-decoration-none">¿Ya tienes una cuenta? Inicia sesión.</a>
+          <hr style="border-top: 1px solid #DBDBDB; width: 100%;">
+          
+        </div>
+        
+      </div>
+    </div>
   </div>
 </section>

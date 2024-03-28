@@ -14,14 +14,16 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   loginForm!:FormGroup
   submitted= false;
-  send = false;
+  
   constructor(private formBuilder:FormBuilder){
-    //this.loginData = new Login();
+    
   }
-  //loginData: Login;
+  
 
   ngOnInit(){
     //validations
+    //requiere email (@) y un patron de letras (.) letras
+    //requiere una contraseña minimo 8 caracteres y un patron de una minuscula,una mayuscula, un numero y un caracter especial.
     this.loginForm = this.formBuilder.group({
       'email': ['', [Validators.required,Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
       'password': ['',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]]

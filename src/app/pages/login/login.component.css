@@ -18,3 +18,8 @@ img{
     background-color: #36506C;
     width: 26rem;
 }
+
+.btn-info:hover {
+    background-color: #00acc1;
+    border-color: #00acc1;
+  }
