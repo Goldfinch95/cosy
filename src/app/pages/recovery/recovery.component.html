@@ -1,21 +1,42 @@
 <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card shadow-lg">
-          <div class="card-body">
-            <h4 class="card-title text-center text-white mb-3">Recuperar Cuenta</h4>
-            <form>
-              <div class="my-5">
-                <input type="email" class="form-control mb-3" id="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico">
-                <div id="emailHelp" class="form-text text-info">Te enviaremos un enlace de recuperación a este correo electrónico.</div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h4 class="card-title text-center text-white mb-3">
+            Recuperar Cuenta
+          </h4>
+          <form [formGroup]="recoveryForm" (ngSubmit)="onSubmit()">
+            <div class="my-5">
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control mb-3"
+                [ngClass]="{ 'is-invalid': submitted && recoveryForm.controls['email'].errors }"
+                placeholder="Ingresa tu correo electrónico"
+              />
+              @if (submitted && recoveryForm.controls['email'].errors){
+                <div class="text-danger mt-2">
+                  Se necesita de un Email.
+                </div>
+              }
+              <div id="emailHelp" class="form-text text-info">
+                Te enviaremos un enlace de recuperación a este correo
+                electrónico.
               </div>
-              <div class="text-center ">
-                <hr style="border-top: 1px solid #DBDBDB; width: 100%;"/>
-                <button type="submit" class="btn btn-primary btn-lg btn-block w-100">Recuperar Cuenta</button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="text-center">
+              <hr style="border-top: 1px solid #dbdbdb; width: 100%" />
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg btn-block w-100"
+              >
+                Recuperar Cuenta
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
