@@ -53,14 +53,9 @@
                     Se necesita de una Contraseña.
                   </div>
                 }
-                @if (submitted && loginForm.controls['password'].errors?.['minlength']){
+                @if (submitted && loginForm.controls['password'].errors?.['minlength'] || loginForm.controls['password'].errors?.['pattern'] ){
                   <div class="text-danger mt-2">
-                    Se necesita de una Contraseña de almenos 8 caracteres.
-                  </div>
-                }
-                @if ( submitted && loginForm.controls['password'].errors?.['pattern']){
-                  <div class="text-danger mt-2">
-                    Se necesita de una Contraseña que contenga al menos una letra minúscula,una letra mayúscula, un dígito y un carácter especial.
+                    Se necesita de una Contraseña de almenos 8 caracteres, que contenga al menos una letra minúscula,una letra mayúscula, un dígito y un carácter especial.
                   </div>
                 }
               </div>
