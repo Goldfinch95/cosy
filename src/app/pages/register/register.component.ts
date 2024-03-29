@@ -5,7 +5,8 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -13,13 +14,20 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterLink],
+    RouterLink,
+    FontAwesomeModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
   registerForm!:FormGroup
   submitted= false;
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  showPassword = false;
+showSecondPassword = false;
+showIcon = false;
+showSecondIcon = false;
   
   constructor(private formBuilder:FormBuilder, private http: HttpClient, private router: Router){
     
@@ -80,7 +88,15 @@ export class RegisterComponent implements OnInit{
         }
       })
     }
-    
-    console.log(this.registerForm)
+  }
+
+  togglePasswordVisibility(field: string) {
+    if (field === 'password') {
+      this.showPassword = !this.showPassword;
+      this.showIcon = !this.showIcon;
+    } else if (field === 'secondPassword') {
+      this.showSecondPassword = !this.showSecondPassword;
+      this.showSecondIcon = !this.showSecondIcon;
+    }
   }
 }

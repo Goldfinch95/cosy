@@ -1,5 +1,4 @@
 <div class="container d-flex flex-column justify-content-center">
-  
   <!-- Title -->
   <section>
     <div>
@@ -13,10 +12,10 @@
       <div class="col-md-6 col-lg-5">
         <div class="d-flex justify-content-end">
           <img
-          src="../../../assets/login/login_img.png"
-          alt="social-media-img"
-          class="img-fluid d-none d-md-block"
-        />
+            src="../../../assets/login/login_img.png"
+            alt="social-media-img"
+            class="img-fluid d-none d-md-block"
+          />
         </div>
       </div>
       <!--card container-->
@@ -31,38 +30,56 @@
                   type="email"
                   formControlName="email"
                   class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && loginForm.controls['email'].errors }"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && loginForm.controls['email'].errors
+                  }"
                   placeholder="Email"
                 />
                 @if (submitted && loginForm.controls['email'].errors){
-                  <div class="text-danger mt-2">
-                    Se necesita de un Email.
-                  </div>
+                <div class="text-danger mt-2">Se necesita de un Email.</div>
                 }
               </div>
-              <div class="mb-3">
+              <div class="input-group mb-3">
                 <input
                   type="password"
+                  [type]="showPassword ? 'text' : 'password'"
                   formControlName="password"
-                  class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors }"
+                  class="form-control position-relative"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && loginForm.controls['password'].errors
+                  }"
                   placeholder="Contraseña"
                 />
-                @if (submitted && loginForm.controls['password'].errors?.['required']){
-                  <div class="text-danger mt-2">
-                    Se necesita de una Contraseña.
+                
+                  <button
+                  class="btn btn-light border-end-0 "
+                    type="button"
+                    id="icon-click"
+                    (click)="togglePasswordVisibility()"
+                  >
+                    <fa-icon [icon]="showIcon ? faEye : faEyeSlash"></fa-icon>
+                  </button>
                   </div>
+                  @if (submitted &&
+                loginForm.controls['password'].errors?.['required']){
+                <div class="text-danger mt-2">
+                  Se necesita de una Contraseña.
+                </div>
+                } @if (submitted &&
+                loginForm.controls['password'].errors?.['minlength'] ||
+                loginForm.controls['password'].errors?.['pattern'] ){
+                <div class="text-danger mt-2">
+                  Se necesita de una Contraseña de almenos 8 caracteres, que
+                  contenga al menos una letra minúscula,una letra mayúscula, un
+                  dígito y un carácter especial.
+                </div>
                 }
-                @if (submitted && loginForm.controls['password'].errors?.['minlength'] || loginForm.controls['password'].errors?.['pattern'] ){
-                  <div class="text-danger mt-2">
-                    Se necesita de una Contraseña de almenos 8 caracteres, que contenga al menos una letra minúscula,una letra mayúscula, un dígito y un carácter especial.
-                  </div>
-                }
-              </div>
+                
+              
               <div class="mb-3">
-                <button
-                  class="btn btn-primary btn-lg btn-block w-100"
-                >
+                <button class="btn btn-primary btn-lg btn-block w-100">
                   Ingresar
                 </button>
               </div>
@@ -87,5 +104,4 @@
       </div>
     </div>
   </section>
-
 </div>

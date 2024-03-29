@@ -5,6 +5,8 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -12,13 +14,18 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterLink],
+    RouterLink,
+    FontAwesomeModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  showPassword = false;
+  showIcon = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
 
@@ -55,5 +62,10 @@ export class LoginComponent implements OnInit {
     }
     
     console.log(this.loginForm);
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+    this.showIcon = !this.showIcon;
   }
 }
