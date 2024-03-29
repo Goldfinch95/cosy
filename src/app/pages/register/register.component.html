@@ -21,8 +21,8 @@
                 }
           </div>
           <div class="mb-3">
-            <input type="text" formControlName="fullName" class="form-control " [ngClass]="{ 'is-invalid': submitted && registerForm.controls['fullName'].errors }" placeholder="Nombre completo">
-            @if (submitted && registerForm.controls['fullName'].errors){
+            <input type="text" formControlName="nombre" class="form-control " [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre'].errors }" placeholder="Nombre completo">
+            @if (submitted && registerForm.controls['nombre'].errors){
               <div class="text-danger mt-2">
                 Se necesita un nombre completo.
               </div>

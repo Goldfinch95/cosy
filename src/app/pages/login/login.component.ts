@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [ CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule],
+    HttpClientModule,
+    RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
         if (userFound.length > 0) {
           
           // Aquí podrías redirigir a otra página después de un inicio de sesión exitoso
-          this.router.navigate(['/home']);
+          this.router.navigateByUrl('/home')
         } else {
           alert('Email y/o password incorrecto.');
         }
