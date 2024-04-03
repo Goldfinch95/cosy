@@ -2,8 +2,15 @@
     background-color: #36506C;
 }
 
+
 .logo_container{
     padding-left: 1rem;
+   
+}
+
+.nav-item{
+    
+    padding-left: 2rem;
 }
 
 input{
