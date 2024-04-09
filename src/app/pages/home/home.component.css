@@ -5,3 +5,12 @@
 .container-fluid{
     background-color: #EBF7FD;;
 }
+
+.full-height-row {
+    height: 100vh;
+  }
+
+  app-sidebar {
+    width: 100%;
+    height: 100%;
+  }
