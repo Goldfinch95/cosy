@@ -5,3 +5,33 @@
 .pr{
     padding-right: 100px;
 }
+
+.card-body{
+    padding: 0%;
+}
+
+
+
+.card{
+    background-color: #36506C;
+}
+
+.container{
+    background-color: rgb(217 217 217 / 10%); /* #D9D9D9 con 5% de opacidad */
+}
+
+.form-control{
+    background-color: rgb(217 217 217 / 10%);
+    outline: none;
+    border: none;
+    color: #ffff;
+    font-size: large;
+}
+
+.form-control::placeholder{
+    color: #ffff;
+}
+
+.btn{
+    font-size: large;
+}
