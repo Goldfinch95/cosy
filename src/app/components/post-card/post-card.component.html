@@ -1,25 +1,25 @@
-<div class="container mt-4 w-50">
-  <div class="card">
+
+  <div class="card my-lg-5">
     <div class="card-body">
       <div class="row p-lg-3">
         <div class="pr col-lg-1 col-md-6">
           
             <img
-              src="https://lh3.googleusercontent.com/a/ACg8ocI_Fbnf1HIFWV45ZOmpyl3N7NsKPI8GJgE38aS51jtoYeVVZN6LKg=s96-c-rg-br100"
-              width="100"
-              height="100"
+              src= {{profileImg}}
+              width="90"
+              height="90"
               alt="Imagen"
-              class="circle-img"
+              class="rounded-circle"
             />
           
         </div>
         <div class="col-lg-8 col-md-6 d-flex flex-column">
           <div class="row">
             
-              <h1 class="card-title text-white">Facundo Vila</h1>
+              <h1 class="card-title text-white">{{profileName}}</h1>
             
             
-              <h4 class="card-subtitle mb-2 text-white">5hs</h4>
+              <h4 class="card-subtitle mb-2 text-white">Público:</h4>
             
           </div>
         </div>
@@ -27,13 +27,13 @@
       <div class="row mt-2 ps-lg-3">
         <div class="col">
           <p class="card-text text-white">
-            El dia de hoy la pase bomba!!
+            {{postData}}
           </p>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col">
-          <img src="../../../assets/img/test.png" class="card-img-bottom" alt="" />
+          <img src={{postImg}} class="card-img-bottom" alt="" />
         </div>
       </div>
       <div class="container">
@@ -54,4 +54,4 @@
       </div>
     </div>
   </div>
-</div>
+

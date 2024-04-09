@@ -8,15 +8,12 @@
 
 
 .logo_container{
-    padding-left: 1rem;
+    padding-left: 2rem;
    
 }
 
 .nav-item{
     
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 
-input{
-    width: 1000px;
-}
