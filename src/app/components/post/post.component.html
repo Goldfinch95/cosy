@@ -14,8 +14,11 @@
         </div>
         <div class="col-md-9 d-flex align-items-center">
           <!-- Input text -->
-          <input
+          <input 
             type="text"
+            
+            [(ngModel)]="inputValue"
+            (keyup.enter)="onEnter()"
             class="form-control"
             placeholder="Que tal tu dia?"
           />

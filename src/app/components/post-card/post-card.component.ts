@@ -16,6 +16,7 @@ export class PostCardComponent {
   faComments = faComments;
   faShare = faShare;
 
+  
   @Input() profileImg!: string;
   @Input() profileName!: string;
   @Input() postData!: string;
