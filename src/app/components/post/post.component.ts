@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
@@ -14,30 +14,42 @@ import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 export class PostComponent {
   faImage = faImage;
   faSmile = faSmile;
+  inputValue = '';
+  @Input() publicationsData: any;
+
   
-  inputValue: string = '';
-  publications: any[] = [];
-  allPublications: any[] = publicationsData.publications;
 
+  ngOnInit() {
+    console.log(this.publicationsData);
+  }
 
-  onEnter() {
-    // Verificar que haya un valor en el input
-    if (this.inputValue.trim() !== '') {
-      // Nuevo objeto para agregar al arreglo de publicaciones
-      const newPublication = {
-        profile_img: 'https://lh3.googleusercontent.com/a/ACg8ocI_Fbnf1HIFWV45ZOmpyl3N7NsKPI8GJgE38aS51jtoYeVVZN6LKg=s96-c-rg-br100',
-        profile_name: 'Facundo Vila',
-        post_data: this.inputValue,
-        post_img: 'none'
-      };
-
-      // Agregar el nuevo objeto al principio del arreglo
-      this.allPublications.push(newPublication)
-
-      // Limpiar el input después de agregar la publicación
-      this.inputValue = '';
-       console.log('Publications:', this.allPublications);
-    }
+  onEnter(){
+    const AllPublications = this.publicationsData
+    const newData = {
+      profile_img: "https://avatars.githubusercontent.com/u/104276119?v=4",
+      profile_name: "Facundo Vila",
+      post_data: this.inputValue,
+      post_img: "none"
+    };
+    this.inputValue = ''
+    AllPublications.push(newData)
+    console.log(AllPublications)
   }
 }
+
+/*export interface Publication {
+  profile_img: string;
+  profile_name: string;
+  post_data: string;
+  post_img: string;
+}*/
+
+
+
+  // Crear nuevo objeto con los datos nuevos
+  
+
+  // Agregar el nuevo objeto al array de publicaciones
+  // Mostrar la copia actualizada en la consola
+  
 
