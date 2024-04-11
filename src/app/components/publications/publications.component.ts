@@ -14,17 +14,10 @@ import * as publicationsData from '../../../assets/publications.json';
 export class PublicationsComponent {
 
   allPublications: any[] = publicationsData.publications;
-  
-  @Output() publicationSelected = new EventEmitter<any>()
-  
-  constructor() {
-    
-  }
 
-  ngOnInit(publication: any): void {
-    
-    this.publicationSelected.emit(publication); 
-  }
+  
+  
+  
 }
 
 
