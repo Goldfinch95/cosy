@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   faEyeSlash = faEyeSlash;
   showPassword = false;
   showIcon = false;
+  perfilData: any;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
 
@@ -47,21 +48,30 @@ export class LoginComponent implements OnInit {
     if (this.submitted) {
       this.http.get('http://localhost:8000/clientes').subscribe((res: any) => {
         const users = res.data[0];
+        /*const profileCopy = {
+          user.: "https://avatars.githubusercontent.com/u/104276119?v=4",
+          profile_name: "Facundo Vila",
+          post_data: this.inputValue,
+          post_img: this.selectedFile ? URL.createObjectURL(this.selectedFile) : null
+        }*/
         const userFound = users.filter((user: any) =>
           user.email === this.loginForm.value.email &&
           user.password === this.loginForm.value.password
         );
+        
         if (userFound.length > 0) {
-          
           // Aquí podrías redirigir a otra página después de un inicio de sesión exitoso
+          console.log(userFound)
+          this.perfilData = userFound
           this.router.navigateByUrl('/home')
+          this.perfilData = userFound[0];
         } else {
           alert('Email y/o password incorrecto.');
         }
       });
     }
+    console.log(this.perfilData)
     
-    console.log(this.loginForm);
   }
 
   togglePasswordVisibility() {

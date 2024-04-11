@@ -18,4 +18,6 @@
     color: #ffff;
 }
 
-
+.label{
+    cursor: pointer;
+}

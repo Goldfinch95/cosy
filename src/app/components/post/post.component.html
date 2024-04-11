@@ -22,19 +22,20 @@
             placeholder="Que tal tu dia?"
           />
         </div>
-        <div class="col">
-          <img [src]="selectedFileDataUrl" class="card-img-bottom" alt="" />
-        </div>
+        @if (selectedFileDataUrl) {
+          <div class="col mt-3">
+            <img [src]="selectedFileDataUrl" class="card-img-bottom" alt="" />
+          </div>
+        }
       </div>
     </div>
     <div class="container">
       <div class="row  d-flex justify-content-center  py-2">
         <div class="col-5  d-flex justify-content-center ps-2">
-          <label for="formFile" class="form-label text-white"><fa-icon [icon]="faImage"  style="color: #f0f2f5"></fa-icon
+          <label for="formFile" class="label d-flex align-items-center justify-content-center text-white"><fa-icon [icon]="faImage"  style="color: #f0f2f5"> </fa-icon
             > Imagen / Video<input type="file" (change)="onFileSelected($event)" id="formFile" style="display: none;"></label>
         </div>
         <div class="col-6  d-flex justify-content-center ps-2">
-         
           <button type="button" class="btn text-white border-0">
             <fa-icon [icon]="faSmile" style="color: #f0f2f5"></fa-icon
             > Sentimiento / Actividad

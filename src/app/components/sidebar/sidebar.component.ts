@@ -13,4 +13,7 @@ faPeopleGroup
 export class SidebarComponent {
   faUserGroup = faUserGroup;
   faPeopleGroup = faPeopleGroup;
+
+  //@Input() perfilData: any;
+
 }

@@ -2,6 +2,8 @@
     height: 100%;
     background-color: #36506C;
     align-items: flex-start;
+    margin-top: 20%;
+    padding-left: 10%;
 }
 
 .navbar-brand {
