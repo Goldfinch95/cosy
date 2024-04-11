@@ -7,6 +7,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { PerfilService } from '../../perfil.service';
+
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,7 +18,8 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
     ReactiveFormsModule,
     HttpClientModule,
     RouterLink,
-    FontAwesomeModule],
+    FontAwesomeModule,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -28,7 +32,8 @@ export class LoginComponent implements OnInit {
   showIcon = false;
   perfilData: any;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private perfilService: PerfilService, private router: Router) {}
+ 
 
   ngOnInit(): void {
     //validations
@@ -63,9 +68,10 @@ export class LoginComponent implements OnInit {
           // Aquí podrías redirigir a otra página después de un inicio de sesión exitoso
           console.log(userFound)
           this.perfilData = userFound
+          this.perfilService.setProfile(this.perfilData);
           this.router.navigateByUrl('/home')
           this.perfilData = userFound[0];
-        } else {
+        } else { 
           alert('Email y/o password incorrecto.');
         }
       });

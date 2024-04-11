@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPeopleGroup, faUserGroup } from '@fortawesome/free-solid-svg-icons';
-faPeopleGroup
+import { PerfilService } from '../../perfil.service';
+PerfilService
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +14,12 @@ faPeopleGroup
 export class SidebarComponent {
   faUserGroup = faUserGroup;
   faPeopleGroup = faPeopleGroup;
+  perfilData: any;
 
-  //@Input() perfilData: any;
+  constructor(private perfilService: PerfilService) {}
 
+  ngOnInit(): void {
+    console.log(this.perfilService.getProfile())
+    this.perfilData = this.perfilService.getProfile();
+  }
 }
