@@ -19,12 +19,6 @@ export class PublicationsComponent {
   
   getLike(clickedLike: boolean){
     this.clickedLike = clickedLike
-    console.log(this.clickedLike)
   }
   
 }
-
-
-/*interface AllPublications{
-  [key: string]: publication[];
-}*/
