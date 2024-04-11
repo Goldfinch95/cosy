@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         
         if (userFound.length > 0) {
           // Aquí podrías redirigir a otra página después de un inicio de sesión exitoso
-          console.log(userFound)
+          
           this.perfilData = userFound
           this.perfilService.setProfile(this.perfilData);
           this.router.navigateByUrl('/home')
@@ -76,8 +76,6 @@ export class LoginComponent implements OnInit {
         }
       });
     }
-    console.log(this.perfilData)
-    
   }
 
   togglePasswordVisibility() {

@@ -39,11 +39,19 @@
       <div class="container">
         <div class="row  d-flex justify-content-center  py-2">
             <div class="col  d-flex justify-content-center">
-              <button type="button" class="btn text-white border-0 w-100"><fa-icon [icon]="faHeart" style="color: #f0f2f5"></fa-icon
-                > Me gusta</button>
+              <button type="button" (click)="onClick()" class="btn text-white border-0 w-100">
+                @if (clickedLike) {
+                  <fa-icon [icon]="faHeart" style="color: red"></fa-icon
+                    >
+                }
+                @else{
+                  <fa-icon [icon]="faHeart" style="color: #f0f2f5"></fa-icon
+                    >
+                }
+                 Me gusta</button>
               </div>
               <div class="col d-flex justify-content-center">
-              <button type="button" class="btn text-white border-0 w-100"><fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon
+              <button type="button"  class="btn text-white border-0 w-100"><fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon
                 > Comentar</button>
               </div>
               <div class="col  d-flex justify-content-center">

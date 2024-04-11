@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faComments, faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,12 +15,19 @@ export class PostCardComponent {
   faHeart = faHeart;
   faComments = faComments;
   faShare = faShare;
-
+  clickedLike = false;
   
   @Input() profileImg!: string;
   @Input() profileName!: string;
   @Input() postData!: string;
   @Input() postImg!: string;
+  @Input() postLike!: boolean;
+  @Output() addClickedLikeEvent = new EventEmitter<boolean>()
+
+  onClick(){
+    this.clickedLike = !this.clickedLike
+    this.addClickedLikeEvent.emit(this.clickedLike)
+  }
 }
 
 export interface Publication {
@@ -31,5 +38,6 @@ export interface Publication {
   publication: {
     publication_text: string;
     publication_img: string;
+    post_like: boolean;
   };
 }

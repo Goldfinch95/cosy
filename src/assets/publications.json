@@ -4,25 +4,29 @@
       "profile_img": "https://avatars.githubusercontent.com/u/1561955?v=4",
       "profile_name": "Miguel Angel Duran",
       "post_data": "¡Hoy es un día increíble! Disfrutando del sol y la playa.",
-      "post_img": "https://pbs.twimg.com/media/FWHTPSGUEAANgNj?format=jpg&name=large"
+      "post_img": "https://pbs.twimg.com/media/FWHTPSGUEAANgNj?format=jpg&name=large",
+      "post_like": true
     },
     {
       "profile_img": "https://avatars.githubusercontent.com/u/6494462?v=4",
       "profile_name": "Gonzalo Pozzo",
       "post_data": "Acabo de terminar de leer un gran libro. Recomiendo totalmente 'Cien años de soledad' de Gabriel García Márquez.",
-      "post_img": "https://i.ytimg.com/vi/BHS2ECNqIgQ/maxresdefault.jpg"
+      "post_img": "https://i.ytimg.com/vi/BHS2ECNqIgQ/maxresdefault.jpg",
+      "post_like": false
     },
     {
       "profile_img": "https://avatars.githubusercontent.com/u/15913811?v=4",
       "profile_name": "Carmen Ansio",
       "post_data": "¡Emocionado por comenzar mi nuevo proyecto! 🚀 #nuevosdesafíos",
-      "post_img": "https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/f16e52b7-28b7-44ea-a5a4-66dc883f42f5/notion/w=1920,quality=80,fit=scale-down"
+      "post_img": "https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/f16e52b7-28b7-44ea-a5a4-66dc883f42f5/notion/w=1920,quality=80,fit=scale-down",
+      "post_like": true
     },
     {
       "profile_img": "https://avatars.githubusercontent.com/u/90206336?v=4",
       "profile_name": "Julian Ajras",
       "post_data": "Hermosa vista desde mi ventana esta mañana. #amanecer",
-      "post_img": "https://oneftbl-cms.imgix.net/https%3A%2F%2Fgambetalp.com%2Fwp-content%2Fuploads%2F2023%2F08%2Fdescarga-6.jpg?auto=format%2Ccompress&crop=faces&dpr=2&fit=crop&h=210&q=25&w=280&s=62cd2a3719994f3f1201b009f5d4e4fe"
+      "post_img": "https://oneftbl-cms.imgix.net/https%3A%2F%2Fgambetalp.com%2Fwp-content%2Fuploads%2F2023%2F08%2Fdescarga-6.jpg?auto=format%2Ccompress&crop=faces&dpr=2&fit=crop&h=210&q=25&w=280&s=62cd2a3719994f3f1201b009f5d4e4fe",
+      "post_like": false
     }
   ]
 }

@@ -27,7 +27,6 @@ export class PostComponent {
   constructor(private perfilService: PerfilService) {}
 
   ngOnInit(): void {
-    console.log(this.perfilService.getProfile())
     this.perfilData = this.perfilService.getProfile();
   }
 

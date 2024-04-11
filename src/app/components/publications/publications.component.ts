@@ -13,10 +13,14 @@ import * as publicationsData from '../../../assets/publications.json';
 })
 export class PublicationsComponent {
 
+  clickedLike: boolean = false;
   allPublications: any[] = publicationsData.publications;
 
   
-  
+  getLike(clickedLike: boolean){
+    this.clickedLike = clickedLike
+    console.log(this.clickedLike)
+  }
   
 }
 
