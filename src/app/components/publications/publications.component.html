@@ -1,5 +1,5 @@
 <div class="container mt-4 w-50">
-  @for (publication of allPublications; track $index) {
+  @for (publication of allPublications.reverse(); track $index) {
     <app-post-card
     (addClickedLikeEvent)="getLike($event)"
     [profileImg]="allPublications[$index].profile_img" [profileName]="allPublications[$index].profile_name" [postData]="allPublications[$index].post_data" [postImg]="allPublications[$index].post_img" [postLike]="allPublications[$index].post_like"></app-post-card>
