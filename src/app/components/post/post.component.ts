@@ -2,6 +2,7 @@ import { Component, Input} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
+import { PerfilService } from '../../perfil.service';
 
 
 @Component({
@@ -18,8 +19,18 @@ export class PostComponent {
   inputValue = '';
   selectedFile: File | null = null;
   selectedFileDataUrl: string | null = null;
+  perfilData: any;
 
   @Input() publicationsData: any;
+ 
+
+  constructor(private perfilService: PerfilService) {}
+
+  ngOnInit(): void {
+    console.log(this.perfilService.getProfile())
+    this.perfilData = this.perfilService.getProfile();
+  }
+
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -32,9 +43,10 @@ export class PostComponent {
       return
     }
     const AllPublications = this.publicationsData
+
     const newData = {
-      profile_img: "https://avatars.githubusercontent.com/u/104276119?v=4",
-      profile_name: "Facundo Vila",
+      profile_img: this.perfilData[0].apellido,
+      profile_name: this.perfilData[0].nombre,
       post_data: this.inputValue,
       post_img: this.selectedFile ? URL.createObjectURL(this.selectedFile) : null
     };
