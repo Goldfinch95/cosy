@@ -3,6 +3,20 @@
     <div class="card border-0" style="max-width: 350px; width: 100%;">
       <div class="card-body" style="margin: 0 20px;">
         <h1 class="title text-center text-white mb-4">Registrarse</h1>
+        <div class="d-flex justify-content-center align-center">
+          <label for="formFile" class="label d-flex align-items-center justify-content-center text-white">
+            @if (!selectedFile) {
+              
+                <img src="https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder-300x300.jpg" alt="Imagen" class="img-fluid rounded-circle" style=" width: 100px; height: 100px; border: 5px solid white;">
+              
+             
+            }
+            @else {
+              <img [src]="selectedFileDataUrl" alt="Imagen" class="img-fluid rounded-circle " style=" width: 100px; height: 100px; border: 5px solid white;">
+            }    
+            <input type="file"  (change)="onFileSelected($event)" id="formFile" style="display: none;"></label>
+        </div>
+        
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <hr style="border-top: 1px solid #dbdbdb; width: 100%;" />
           <div>

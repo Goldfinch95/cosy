@@ -21,6 +21,9 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegisterComponent implements OnInit{
   registerForm!:FormGroup
+  selectedFile: File | null = null;
+  selectedFileDataUrl: string | null = null;
+  defaultImageUrl: string = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder-300x300.jpg'
   submitted= false;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
@@ -41,12 +44,13 @@ showSecondIcon = false;
     //requiere una contraseña minimo 8 caracteres y un patron de una minuscula,una mayuscula, un numero y un caracter especial.
     //validacion especial que sean iguales las contraseñas
     this.registerForm = this.formBuilder.group({
+      'apellido': this.selectedFileDataUrl,
       'email': ['', [Validators.required,Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
       'nombre': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
       'password': ['',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       'secondPassword': ['', [Validators.required]],
-      'apellido': ['-']
     })
+    console.log(this.registerForm)
   }
 
   //funcion que comprueba si las contraseñas son iguales
@@ -99,4 +103,21 @@ showSecondIcon = false;
       this.showSecondIcon = !this.showSecondIcon;
     }
   }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.getImageUrl(); // Llamar a getImageUrl() después de seleccionar el archivo
+  }
+
+  getImageUrl(){
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.selectedFileDataUrl = reader.result as string;
+        this.registerForm.patchValue({
+          apellido: this.selectedFileDataUrl // Asignar la URL de la imagen al campo 'apellido'
+        });
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }}
 }
