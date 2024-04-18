@@ -1,0 +1,21 @@
+.con{
+    width: 100%;
+    height: 100%;
+}
+
+.col{
+    margin-left: 1rem;
+}
+
+.profile{
+    display: contents;
+}
+
+.comment_container{
+    
+    background-color: rgb(217 217 217 / 10%);
+    outline: none;
+    border: none;
+    color: #ffff;
+    font-size: large;
+}

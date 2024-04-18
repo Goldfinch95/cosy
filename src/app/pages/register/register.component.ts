@@ -50,7 +50,7 @@ showSecondIcon = false;
       'password': ['',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       'secondPassword': ['', [Validators.required]],
     })
-    console.log(this.registerForm)
+    
   }
 
   //funcion que comprueba si las contraseñas son iguales

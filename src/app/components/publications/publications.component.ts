@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output  } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PostCardComponent } from '../post-card/post-card.component';
-import * as publicationsData from '../../../assets/publications.json';
+
 
 
 
@@ -14,8 +14,8 @@ import * as publicationsData from '../../../assets/publications.json';
 export class PublicationsComponent {
 
   clickedLike: boolean = false;
-  allPublications: any[] = publicationsData.publications;
-
+  @Input() publicationsData: any[] = []
+  
   
   getLike(clickedLike: boolean){
     this.clickedLike = clickedLike

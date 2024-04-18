@@ -5,11 +5,12 @@ import {
   faHeart,
   faShare,
 } from '@fortawesome/free-solid-svg-icons';
+import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-post-card',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, CommentsComponent],
   templateUrl: './post-card.component.html',
   styleUrl: './post-card.component.css',
 })
@@ -18,6 +19,7 @@ export class PostCardComponent {
   faComments = faComments;
   faShare = faShare;
   clickedLike = false;
+  clickedCommentary = false;
 
   @Input() profileImg!: string;
   @Input() profileName!: string;
@@ -34,6 +36,10 @@ export class PostCardComponent {
     this.clickedLike = !this.clickedLike;
     this.addClickedLikeEvent.emit(this.clickedLike);
     this.postLike = this.clickedLike;
+  }
+
+  onClickComment(){
+    this.clickedCommentary = !this.clickedCommentary
   }
 }
 
