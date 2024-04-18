@@ -13,9 +13,5 @@ import * as publicationData from '../../../assets/publications.json'
 export class WallComponent {
 
   publicationsData = publicationData.publications
-
-  constructor(){
-    console.log(publicationData)
-  }
-
+  
 }

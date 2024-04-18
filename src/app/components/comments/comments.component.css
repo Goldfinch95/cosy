@@ -3,6 +3,12 @@
     height: 100%;
 }
 
+.card{
+    background-color: #36506C;
+    border: none;
+    outline: none;
+}
+
 .col{
     margin-left: 1rem;
 }
@@ -18,4 +24,16 @@
     border: none;
     color: #ffff;
     font-size: large;
+}
+
+.form-control{
+    background-color: rgb(217 217 217 / 10%);
+    outline: none;
+    border: none;
+    color: #ffff;
+    font-size: large;
+}
+
+.form-control::placeholder{
+    color: #ffff;
 }

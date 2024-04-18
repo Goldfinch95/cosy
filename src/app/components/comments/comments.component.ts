@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { PerfilService } from '../../perfil.service';
 
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css'
 })
 export class CommentsComponent {
+
+  inputValue = '';
+  allpublications = [{}];
+  perfilData: any;
 
   comments = [
     {
@@ -31,5 +37,25 @@ export class CommentsComponent {
       comment: "Cada golpe tiene un propósito claro. Se nota que están enfocados en mejorar y aprender."
     },
   ]
+  
+  constructor(private perfilService: PerfilService) {}
+
+  ngOnInit(): void {
+    this.perfilData = this.perfilService.getProfile();
+  }
+
+  onEnter(){
+    if (this.inputValue === ''){
+      return
+    };
+    this.allpublications = this.comments
+    const newComment = {
+      profile_img: this.perfilData[0].apellido,
+      profile_name: this.perfilData[0].nombre,
+      comment: this.inputValue
+    };
+    this.allpublications.push(newComment)
+    this.inputValue = '';
+  }
   
 }
