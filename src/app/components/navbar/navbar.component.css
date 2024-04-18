@@ -20,3 +20,22 @@
 .form-inline{
     width: 70%;
 }
+
+ul{
+    background-color: #36506C;
+    font-size: medium;
+}
+
+.dropdown-item{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+
+.dropdown-item:hover{
+    background-color: rgb(217 217 217 / 10%);
+}
+
+.comment{
+    margin-left: 12px;
+}
