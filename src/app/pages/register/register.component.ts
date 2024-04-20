@@ -87,8 +87,7 @@ faEyeSlash = faEyeSlash;
     }
     if(this.submitted){
       const {name,lastName,mail,password} = this.registerForm.value
-       const data = this.http.post('http://localhost:13000/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
-        console.log(data)
+        this.http.post('http://localhost:13000/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
         if(!res.result){
           alert(res.message)
         }

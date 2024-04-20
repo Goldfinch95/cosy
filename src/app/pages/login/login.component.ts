@@ -25,6 +25,7 @@ import { PerfilService } from '../../perfil.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  windowError = false;
   submitted = false;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
@@ -48,27 +49,53 @@ export class LoginComponent implements OnInit {
 
 
   //HACER POST
+
+  async onSubmit(): Promise<void> {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+    if (this.submitted) {
+      try {
+        const res: any = await this.http.post('http://localhost:13000/users/login', this.loginForm.value).toPromise();
+        console.log(res);
+        // Obtener el token
+        const token = res.token;
+        console.log(token);
+        // Guardar en el local storage
+        localStorage.setItem('token', res.token);
+        // Ir al home
+        this.router.navigateByUrl('/home');
+      } catch (error: any) {
+        this.windowError = true;
+        console.log(this.windowError)
+      }
+    }
+  }
   
+  /*
    onSubmit() : void {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
     if (this.submitted) {
-      const data = this.http.post('http://localhost:13000/users/login', this.loginForm.value).subscribe((res: any) => {
-        if(!data){
-          alert('Email y/o password incorrecto.');
-        }
-         //obtener el token
-         const token = res.token
-         console.log(token)
-         //guardar en el local storage
-         localStorage.setItem('token', res.token);
-         //ir al home
-         this.router.navigateByUrl('/home')
-      });
+      try{
+       this.http.post('http://localhost:13000/users/login', this.loginForm.value).subscribe((res: any) => {
+        console.log(res)
+        //obtener el token
+        const token = res.token
+        console.log(token)
+        //guardar en el local storage
+        localStorage.setItem('token', res.token);
+        //ir al home
+        this.router.navigateByUrl('/home')
+      })}
+      catch(error){
+        console.log(`error del tipo ${error}`)
+      }
     }
-  }
+  }*/
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
