@@ -28,15 +28,15 @@
               <div class="mb-3">
                 <input
                   type="email"
-                  formControlName="email"
+                  formControlName="mail"
                   class="form-control"
                   [ngClass]="{
                     'is-invalid':
-                      submitted && loginForm.controls['email'].errors
+                      submitted && loginForm.controls['mail'].errors
                   }"
                   placeholder="Email"
                 />
-                @if (submitted && loginForm.controls['email'].errors){
+                @if (submitted && loginForm.controls['mail'].errors){
                 <div class="text-danger mt-2">Se necesita de un Email.</div>
                 }
               </div>

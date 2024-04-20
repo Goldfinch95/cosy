@@ -21,17 +21,17 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegisterComponent implements OnInit{
   registerForm!:FormGroup
-  selectedFile: File | null = null;
-  selectedFileDataUrl: string | null = null;
-  defaultImageUrl: string = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder-300x300.jpg'
+  //selectedFile: File | null = null;
+  //selectedFileDataUrl: string | null = null;
+  //defaultImageUrl: string = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder-300x300.jpg'
   submitted= false;
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
   showPassword = false;
 showSecondPassword = false;
 showIcon = false;
 showSecondIcon = false;
-  
+faEye = faEye;
+faEyeSlash = faEyeSlash;
+
   constructor(private formBuilder:FormBuilder, private http: HttpClient, private router: Router){
     
   }
@@ -43,10 +43,12 @@ showSecondIcon = false;
     //requiere un nombre de entre 4 y 15 caracteres que sean alfabeticos.
     //requiere una contraseña minimo 8 caracteres y un patron de una minuscula,una mayuscula, un numero y un caracter especial.
     //validacion especial que sean iguales las contraseñas
+
+    //img: 'image': this.selectedFileDataUrl,
     this.registerForm = this.formBuilder.group({
-      'apellido': this.selectedFileDataUrl,
-      'email': ['', [Validators.required,Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
-      'nombre': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
+      'name': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
+      'lastName': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
+      'mail': ['', [Validators.required,Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
       'password': ['',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       'secondPassword': ['', [Validators.required]],
     })
@@ -66,14 +68,63 @@ showSecondIcon = false;
       }
     }
   }
+  //funcion que oculta la contraseñas
+  togglePasswordVisibility(field: 'password' | 'secondPassword') {
+    if (field === 'password') {
+    this.showPassword = !this.showPassword;
+    this.showIcon = !this.showIcon;
+  } else if (field === 'secondPassword') {
+    this.showSecondPassword = !this.showSecondPassword;
+    this.showSecondIcon = !this.showSecondIcon;
+  }
+  }
 
   onSubmit(): void{
+    
     this.submitted = true;
     if(this.registerForm.invalid){
       return
     }
-
     if(this.submitted){
+      const {name,lastName,mail,password} = this.registerForm.value
+       const data = this.http.post('http://localhost:13000/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
+        console.log(data)
+        if(!res.result){
+          alert(res.message)
+        }
+           })
+           
+          //this.router.navigateByUrl('/login')
+      }
+    }
+  }
+  
+
+  /*onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.getImageUrl(); // Llamar a getImageUrl() después de seleccionar el archivo
+  }*/
+
+  /*getImageUrl(){
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.selectedFileDataUrl = reader.result as string;
+        this.registerForm.patchValue({
+          apellido: this.selectedFileDataUrl // Asignar la URL de la imagen al campo 'apellido'
+        });
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }}
+}*/
+
+
+/*/*const data = this.http.post('http://localhost:13000/users/register', this.registerForm.value).subscribe((res:any)=>{
+        })
+        console.log(data)*/ 
+
+
+        /*if(this.submitted){
       this.http.get('http://localhost:8000/clientes').subscribe((res:any)=>{
         const users = res.data[0];
         const userFound = users.filter((user:any)=>
@@ -91,33 +142,7 @@ showSecondIcon = false;
           this.router.navigateByUrl('/login')
         }
       })
-    }
-  }
+    } */
 
-  togglePasswordVisibility(field: string) {
-    if (field === 'password') {
-      this.showPassword = !this.showPassword;
-      this.showIcon = !this.showIcon;
-    } else if (field === 'secondPassword') {
-      this.showSecondPassword = !this.showSecondPassword;
-      this.showSecondIcon = !this.showSecondIcon;
-    }
-  }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    this.getImageUrl(); // Llamar a getImageUrl() después de seleccionar el archivo
-  }
-
-  getImageUrl(){
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.selectedFileDataUrl = reader.result as string;
-        this.registerForm.patchValue({
-          apellido: this.selectedFileDataUrl // Asignar la URL de la imagen al campo 'apellido'
-        });
-      };
-      reader.readAsDataURL(this.selectedFile);
-    }}
-}
+    /*this.selectedFileDataUrl, */

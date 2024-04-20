@@ -40,40 +40,32 @@ export class LoginComponent implements OnInit {
     //requiere email (@) y un patron de letras (.) letras
     //requiere una contraseña minimo 8 caracteres y un patron de una minuscula,una mayuscula, un numero y un caracter especial.
     this.loginForm = this.formBuilder.group({
-      'email': ['', [Validators.required, Validators.email, Validators.pattern(/^.+@.+\..+$/)]],
+      'mail': ['', [Validators.required, Validators.email, Validators.pattern(/^.+@.+\..+$/)]],
       'password': ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]]
     });
   }
 
-  onSubmit(): void {
+
+
+  //HACER POST
+  
+   onSubmit() : void {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
     if (this.submitted) {
-      this.http.get('http://localhost:8000/clientes').subscribe((res: any) => {
-        const users = res.data[0];
-        /*const profileCopy = {
-          user.: "https://avatars.githubusercontent.com/u/104276119?v=4",
-          profile_name: "Facundo Vila",
-          post_data: this.inputValue,
-          post_img: this.selectedFile ? URL.createObjectURL(this.selectedFile) : null
-        }*/
-        const userFound = users.filter((user: any) =>
-          user.email === this.loginForm.value.email &&
-          user.password === this.loginForm.value.password
-        );
-        
-        if (userFound.length > 0) {
-          // Aquí podrías redirigir a otra página después de un inicio de sesión exitoso
-          
-          this.perfilData = userFound
-          this.perfilService.setProfile(this.perfilData);
-          this.router.navigateByUrl('/home')
-          this.perfilData = userFound[0];
-        } else { 
+      const data = this.http.post('http://localhost:13000/users/login', this.loginForm.value).subscribe((res: any) => {
+        if(!data){
           alert('Email y/o password incorrecto.');
         }
+         //obtener el token
+         const token = res.token
+         console.log(token)
+         //guardar en el local storage
+         localStorage.setItem('token', res.token);
+         //ir al home
+         this.router.navigateByUrl('/home')
       });
     }
   }

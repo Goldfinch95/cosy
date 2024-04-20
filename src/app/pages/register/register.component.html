@@ -4,8 +4,8 @@
       <div class="card-body" style="margin: 0 20px;">
         <h1 class="title text-center text-white mb-4">Registrarse</h1>
         <div class="d-flex justify-content-center align-center">
-          <label for="formFile" class="label d-flex align-items-center justify-content-center text-white">
-            @if (!selectedFile) {
+          <!--<label for="formFile" class="label d-flex align-items-center justify-content-center text-white">
+           @if (!selectedFile) {
               
                 <img src="https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder-300x300.jpg" alt="Imagen" class="img-fluid rounded-circle" style=" width: 100px; height: 100px; border: 5px solid white;">
               
@@ -13,28 +13,34 @@
             }
             @else {
               <img [src]="selectedFileDataUrl" alt="Imagen" class="img-fluid rounded-circle " style=" width: 100px; height: 100px; border: 5px solid white;">
-            }    
-            <input type="file"  (change)="onFileSelected($event)" id="formFile" style="display: none;"></label>
+            }
+            <input type="file"   id="formFile" style="display: none;"></label> --> 
         </div>
         
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <hr style="border-top: 1px solid #dbdbdb; width: 100%;" />
           <div>
             <div class="mb-3">
-              <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }" placeholder="Email" />
-              <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['email'].errors">
+              <input type="email" formControlName="mail" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['mail'].errors }" placeholder="Email" />
+              <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['mail'].errors">
                 Se necesita de un Email.
               </div>
             </div>
             <div class="mb-3">
-              <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nombre'].errors }" placeholder="Nombre completo" />
-              <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['nombre'].errors">
+              <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['name'].errors }" placeholder="Nombre" />
+              <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['name'].errors">
                 Se necesita un nombre completo.
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['lastName'].errors }" placeholder="Apellido" />
+              <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['lastName'].errors">
+                Se necesita  de un apellido.
               </div>
             </div>
             <div class="input-group mb-3 ">
               <input type="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control " [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors }" placeholder="Contraseña" />
-              <button class="btn btn-light border-end-0 " type="button" id="first-icon-click" (click)="togglePasswordVisibility('password')">
+              <button class="btn btn-light border-end-0 "  type="button" id="first-icon-click" (click)="togglePasswordVisibility('password')">
                 <fa-icon [icon]="showIcon ? faEye : faEyeSlash"></fa-icon>
               </button>
               <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['password'].errors?.['required']">
@@ -46,7 +52,7 @@
             </div>
             <div class="input-group mb-3">
               <input type="password" [type]="showSecondPassword  ? 'text' : 'password'" formControlName="secondPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['secondPassword'].errors }" placeholder="Repetir contraseña" />
-              <button class="btn btn-light border-end-0" type="button" id="second-icon-click" (click)="togglePasswordVisibility('secondPassword')">
+              <button class="btn btn-light border-end-0" type="button" id="second-icon-click" (click)="togglePasswordVisibility('secondPassword')" >
                 <fa-icon [icon]="showSecondIcon ? faEye : faEyeSlash"></fa-icon>
               </button>
               <div class="text-danger mt-2" *ngIf="submitted && registerForm.controls['secondPassword'].errors?.['required']">

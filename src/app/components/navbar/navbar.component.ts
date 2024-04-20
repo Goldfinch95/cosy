@@ -8,7 +8,7 @@ import {
   faSearch,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
-faSearch;
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -22,6 +22,7 @@ export class NavbarComponent {
   faUserGroup = faUserGroup;
   faDoorOpen = faDoorOpen;
   faSearch = faSearch;
+  
 
   notifications = [
     {
@@ -46,5 +47,5 @@ export class NavbarComponent {
     },
   ];
 
-  
+
 }
