@@ -1,11 +1,21 @@
 <div class="container mt-4 w-50">
-  @for (publication of publicationsData.reverse(); track $index) {
-    <app-post-card
-    (addClickedLikeEvent)="getLike($event)"
-    [profileImg]="publication.profile_img"
-    [profileName]="publication.profile_name"
-    [postData]="publication.post_data"
-    [postImg]="publication.post_img"
-    [postLike]="publication.post_like"></app-post-card>
+  @for (publication of allPublications; track $index) {
+    @if(publication.image === null){
+      <app-post-card
+      (addClickedLikeEvent)="getLike($event)"
+      [profileImg]="publication.profile_image"
+      [profileName]="publication.fullname"
+      [postData]="publication.content"
+      [postLike]="publication.post_like"></app-post-card>
+    }
+    @else {
+      <app-post-card
+      (addClickedLikeEvent)="getLike($event)"
+      [profileImg]="publication.profile_img"
+      [profileName]="publication.profile_name"
+      [postData]="publication.content"
+      [postImg]="publication.image"
+      [postLike]="publication.post_like"></app-post-card>
+    }
    }
 </div>

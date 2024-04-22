@@ -4,7 +4,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { PerfilService } from '../../perfil.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
+import { lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-post',
   standalone: true,
@@ -25,7 +26,7 @@ export class PostComponent {
   @Input() profileData: any;
  
 
-  constructor(private perfilService: PerfilService, private sanitizer: DomSanitizer) {}
+  constructor(private http: HttpClient, private perfilService: PerfilService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.perfilData = this.perfilService.getProfile();
@@ -41,22 +42,18 @@ export class PostComponent {
   }
   
 
-  onEnter(){
+  async onEnter(){
     if (this.inputValue === ''){
       return
     }
-    const AllPublications = this.publicationsData
-
-    const newData = {
-      profile_img: this.perfilData[0].apellido,
-      profile_name: this.perfilData[0].nombre,
-      post_data: this.inputValue,
-      post_img: this.selectedFile ? URL.createObjectURL(this.selectedFile) : null
+    const token = localStorage.getItem('token');
+    const newPost = {
+      content: this.inputValue,
+      image: null,
+      isPublic: true
     };
+    const post = await lastValueFrom(this.http.post('http://localhost:13000/publications/create', newPost ,{headers: {"Authorization": `Bearer ${token}`}}));
     this.inputValue = ''
-    this.selectedFile = null;
-  this.selectedFileDataUrl = null;
-    AllPublications.push(newData)
   }
 
   getImageUrl(){
