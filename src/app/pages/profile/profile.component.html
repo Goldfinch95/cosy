@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="background d-flex full-height-row">
+    <app-navbar></app-navbar>
+    <div class="col-lg-2 d-flex flex-column">
+      <app-sidebar class="flex-fill" [profileData]="profileData"></app-sidebar>
+    </div>
+    <div class="col-lg d-flex flex-column">
+      <div class="container_box position-relative">
+        <div class="container_img">
+          <img
+            src="https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg"
+            class="img-fluid object-fit-cover w-100 h-100"
+            alt="profile_wallpaper"
+          />
+        </div>
+        <div class="card rounded rounded-5 position-absolute translate-middle">
+          <img
+            src="../../../assets/img/IMG_20240302_192058.jpg"
+            class="rounded border border-3 border-info rounded-5"
+            style="object-fit: cover; height: 100%; width: 100%"
+            alt="profile_img"
+          />
+          <div class="card_overlay card-img-overlay position-absolute translate-middle">
+            <label
+              class="btn p-lg-3 rounded rounded-5 border border-3 border-info"
+            >
+              <fa-icon [icon]="faCamera" class="fa-lg" style="color: #f0f2f5; width: 100%;"></fa-icon>
+              <input type="file"  id="formFile" style="display: none;">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

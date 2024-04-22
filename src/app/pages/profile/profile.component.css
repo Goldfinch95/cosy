@@ -1,0 +1,39 @@
+*{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container_box{
+    height: 100%;
+}
+
+.card{
+    position: absolute;
+    width: 15rem;
+    height: 30%;
+    position: absolute;
+    margin-left: 1rem;
+    background-color: #36506C;
+    padding: 2rem;
+    left: 10%;
+}
+
+.card_overlay {
+    top: 76%;
+    left: 80%;
+}
+
+
+
+.container_img{
+    
+    margin-top: 4.1rem;
+    height: 30%;
+    object-fit: cover;
+   
+}
+
+.btn{
+    background-color: #36506C;
+}
+
