@@ -1,0 +1,9 @@
+.row {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+
+.card{
+    background-color: #36506C;
+  }
