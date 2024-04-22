@@ -2,14 +2,14 @@
   <div class="d-flex flex-column align-items-start">
     <a class="navbar-brand" href="#">
       <img
-        src={{perfilData[0].apellido}}
+      [src]="dataURI(profileData.profile_image)"
         width="50"
         height="50"
         class="d-inline-block align-top rounded-circle"
         alt=""
         style="object-fit: cover;"
       />
-      <span class="text-white px-4">{{perfilData[0].nombre}}</span>
+      <span class="text-white px-4">{{profileData.name}} {{profileData.lastName}}</span>
     </a>
     <button
       class="navbar-toggler"

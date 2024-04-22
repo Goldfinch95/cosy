@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPeopleGroup, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { PerfilService } from '../../perfil.service';
-PerfilService
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,9 +16,17 @@ export class SidebarComponent {
   faPeopleGroup = faPeopleGroup;
   perfilData: any;
 
-  constructor(private perfilService: PerfilService) {}
+  @Input() profileData: any;
+
+  constructor(private perfilService: PerfilService, private sanitizer: DomSanitizer) {
+
+  }
 
   ngOnInit(): void {
     this.perfilData = this.perfilService.getProfile();
+  }
+
+  dataURI(data: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + data);
   }
 }

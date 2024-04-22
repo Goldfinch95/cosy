@@ -3,10 +3,10 @@
   <div class="background row d-flex full-height-row">
     <app-navbar></app-navbar>
     <div class="col-lg-2 d-flex flex-column">
-      <app-sidebar class="flex-fill" ></app-sidebar>
+      <app-sidebar class="flex-fill" [profileData]="profileData"></app-sidebar>
     </div>
     <div class="col-lg-9 d-flex flex-column justify-content-center">
-      <app-wall></app-wall>
+      <app-wall [profileData]="profileData"></app-wall>
     </div>
   </div>
 </div>

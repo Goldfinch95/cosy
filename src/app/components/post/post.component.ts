@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { PerfilService } from '../../perfil.service';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -22,14 +22,18 @@ export class PostComponent {
   perfilData: any;
 
   @Input() publicationsData: any;
+  @Input() profileData: any;
  
 
-  constructor(private perfilService: PerfilService) {}
+  constructor(private perfilService: PerfilService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.perfilData = this.perfilService.getProfile();
   }
 
+  dataURI(data: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + data);
+  }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
