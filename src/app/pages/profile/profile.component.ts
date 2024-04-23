@@ -3,7 +3,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faCalendar, faCamera, faEarth, faGear, faHome, faMarsAndVenus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -20,7 +20,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class ProfileComponent {
   faCamera = faCamera;
-
+  faBriefcase = faBriefcase;
+  faHome= faHome;
+  faCalendar = faCalendar;
+  faEarth = faEarth;
+  faMarsAndVenus = faMarsAndVenus;
+  faGear = faGear;
   profileData: any;
   constructor(private http: HttpClient) {}
 
