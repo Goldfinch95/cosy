@@ -9,10 +9,29 @@
     <div class="col">
       <div class="row">
         <div class="col-2"></div>
-        <div class="col bg-danger  p-0">
+        <div class="col bg-danger p-0 position-relative">
           <div class="img-container d-flex align-items-center overflow-hidden" style="height: 40%;">
             <img src="https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg" class="img-fluid" alt="profile_wallpaper" />
           </div>
+          <div
+          class="card rounded rounded-5 position-absolute translate-middle border border-0"
+        >
+          <img
+            src="../../../assets/img/IMG_20240302_192058.jpg"
+            class="rounded border border-3 border-info rounded-5"
+            style="object-fit: cover; height: 100%; width: 100%"
+            alt="profile_img"
+          />
+        </div>
+        <div
+          class="container_user col d-flex justify-content-center align-items-center"
+        >
+          <div
+            class="container d-flex ms-5 rounded rounded-5 border border-3 border-info"
+          >
+            <span class="text-white p-4"><h1>Facundo Vila</h1></span>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -45,20 +64,6 @@
             style="object-fit: cover; height: 100%; width: 100%"
             alt="profile_img"
           />
-          <div
-            class="card_overlay card-img-overlay position-absolute translate-middle"
-          >
-            <label
-              class="btn p-lg-3 rounded rounded-5 border border-3 border-info"
-            >
-              <fa-icon
-                [icon]="faCamera"
-                class="fa-lg"
-                style="color: #f0f2f5; width: 100%"
-              ></fa-icon>
-              <input type="file" id="formFile" style="display: none" />
-            </label>
-          </div>
         </div>
         <div
           class="container_user col d-flex justify-content-center align-items-center"
