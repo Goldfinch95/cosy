@@ -1,69 +1,70 @@
-<div class="card my-lg-5">
-  <div class="card-body">
-    <div class="row p-lg-3">
-      <div class="pr col-lg-1 col-md-6">
-        <img
-          [src]="dataURI(profileImg)"
-          width="90"
-          height="90"
-          alt="Imagen"
-          class="rounded-circle"
-          style="object-fit: cover"
-        />
-      </div>
-      <div class="col-lg-8 col-md-6 d-flex flex-column  justify-content-center">
-        <div class="row">
-          <h1 class="card-title text-white">{{ profileName }}</h1>
+
+  <div class="card my-lg-5">
+    <div class="card-body">
+      <div class="row p-lg-3">
+        <div class="pr col-lg-1 col-md-6">
+          <img
+            [src]="dataURI(profileImg)"
+            width="90"
+            height="90"
+            alt="Imagen"
+            class="rounded-circle"
+            style="object-fit: cover"
+          />
+        </div>
+        <div class="col-lg-8 col-md-6 d-flex flex-column  justify-content-center">
+          <div class="row">
+            <h1 class="card-title text-white">{{ profileName }}</h1>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-2 ps-lg-3">
-      <div class="col">
-        <p class="card-text text-white">
-          {{ postData }}
-        </p>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col">
-        <img src="{{ postImg }}" class="card-img-bottom" alt="" />
-      </div>
-    </div>
-    <div class="container">
-      <div class="row d-flex justify-content-center py-2">
-        <div class="col d-flex justify-content-center">
-          <button
-            type="button"
-            (click)="onClick()"
-            class="btn text-white border-0 w-100"
-          >
-            @if (clickedLike || postLike) {
-            <fa-icon [icon]="faHeart" style="color: red"></fa-icon>
-            } @else{
-            <fa-icon [icon]="faHeart" style="color: #f0f2f5"></fa-icon>
-            } Me gusta
-          </button>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <button
-            type="button"
-            (click)="onClickComment()"
-            class="btn text-white border-0 w-100"
-          >
-            <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
-            Comentar
-          </button>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <button type="button" class="btn text-white border-0 w-100">
-            <fa-icon [icon]="faShare" style="color: #f0f2f5"></fa-icon>
-            Compartir
-          </button>
+      <div class="row mt-2 ps-lg-3">
+        <div class="col">
+          <p class="card-text text-white">
+            {{ postData }}
+          </p>
         </div>
       </div>
+      <div class="row mt-4">
+        <div class="col">
+          <img src="{{ postImg }}" class="card-img-bottom" alt="" />
+        </div>
+      </div>
+      <div class="container">
+        <div class="row d-flex justify-content-center py-2">
+          <div class="col d-flex justify-content-center">
+            <button
+              type="button"
+              (click)="onClick()"
+              class="btn text-white border-0 w-100"
+            >
+              @if (clickedLike || postLike) {
+              <fa-icon [icon]="faHeart" style="color: red"></fa-icon>
+              } @else{
+              <fa-icon [icon]="faHeart" style="color: #f0f2f5"></fa-icon>
+              } Me gusta
+            </button>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <button
+              type="button"
+              (click)="onClickComment()"
+              class="btn text-white border-0 w-100"
+            >
+              <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
+              Comentar
+            </button>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <button type="button" class="btn text-white border-0 w-100">
+              <fa-icon [icon]="faShare" style="color: #f0f2f5"></fa-icon>
+              Compartir
+            </button>
+          </div>
+        </div>
+      </div>
+      @if(clickedCommentary){
+        <app-comments></app-comments>
+      }
     </div>
-    @if(clickedCommentary){
-      <app-comments></app-comments>
-    }
   </div>
-</div>

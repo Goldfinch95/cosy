@@ -1,4 +1,4 @@
-<div class="container mt-4 w-50">
+<div class="container-fluid  d-flex flex-column justify-content-center w-50">
   @for (publication of allPublications; track $index) {
     @if(publication.image === null){
       <app-post-card
