@@ -1,12 +1,12 @@
-<!--navbar-->
 <div class="container-fluid">
-  <div class="background row d-flex full-height-row">
-    <app-navbar></app-navbar>
-    <div class="col-lg-2 d-flex flex-column">
-      <app-sidebar class="flex-fill" [profileData]="profileData"></app-sidebar>
+  <app-navbar />
+  <div class="row">
+    <div class="col-2 bg-danger">
+      <h1 class="text-white">hola</h1>
+      <app-sidebar [profileData]="profileData"/>
     </div>
-    <div class="col-lg-9 d-flex flex-column justify-content-center">
-      <app-wall [profileData]="profileData"></app-wall>
+    <div class="col">
+      <app-wall [profileData]="profileData"/>
     </div>
   </div>
 </div>

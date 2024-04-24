@@ -3,8 +3,9 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { faBriefcase, faCalendar, faCamera, faEarth, faGear, faHome, faMarsAndVenus } from '@fortawesome/free-solid-svg-icons';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileViewComponent } from '../../components/profile-view/profile-view.component';
 
 @Component({
   selector: 'app-profile',
@@ -14,18 +15,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarComponent,
     SidebarComponent,
     HttpClientModule,
+    ProfileViewComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
   faCamera = faCamera;
-  faBriefcase = faBriefcase;
-  faHome= faHome;
-  faCalendar = faCalendar;
-  faEarth = faEarth;
-  faMarsAndVenus = faMarsAndVenus;
-  faGear = faGear;
   profileData: any;
   constructor(private http: HttpClient) {}
 
