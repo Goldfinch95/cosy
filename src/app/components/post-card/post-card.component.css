@@ -25,3 +25,7 @@
 .btn{
     font-size: large;
 }
+
+.container-fluid{
+    background-color: rgb(217 217 217 / 10%);
+}

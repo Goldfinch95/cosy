@@ -1,21 +1,25 @@
 <div class="container-fluid">
   <!--navbar-->
-  <app-navbar  />
-  <div class="row m-0" >
-    <div class=" col-2 d-flex flex-column position-fixed" style="background-color:#36506C;">
+  <app-navbar />
+  <div class="row m-0">
+    <div
+      class="col-2 d-flex flex-column position-fixed"
+      style="background-color: #36506c"
+    >
       <!--sidebar-->
-      <app-sidebar class="vh-100 container-fluid flex-grow-1" [profileData]="profileData"/>
+      <app-sidebar
+        class="vh-100 container-fluid flex-grow-1"
+        [profileData]="profileData"
+      />
     </div>
     <div class="col">
       <div class="row">
-        <div class="col-2">
-        </div>
+        <div class="col-2"></div>
         <div class="col">
-          <app-wall [profileData]="profileData"/>
+          <!--muro-->
+          <app-wall [profileData]="profileData" />
         </div>
       </div>
-      <!--muro-->
-      
     </div>
   </div>
 </div>

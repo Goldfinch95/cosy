@@ -1,4 +1,27 @@
 <div class="container-fluid">
+  <!-- navbar -->
+  <app-navbar />
+  <div class="row m-0">
+    <div class="col-2 d-flex flex-column position-fixed" style="background-color: #36506c">
+      <!-- sidebar -->
+      <app-sidebar class="vh-100 container-fluid flex-grow-1" [profileData]="profileData" />
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col bg-danger  p-0">
+          <div class="img-container d-flex align-items-center overflow-hidden" style="height: 40%;">
+            <img src="https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg" class="img-fluid" alt="profile_wallpaper" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- muro -->
+</div>
+
+
+<!--<div class="container-fluid">
   <div class="background d-flex full-height-row">
     <app-navbar></app-navbar>
     <div class="col-lg-2 d-flex flex-column">
@@ -46,7 +69,7 @@
             <span class="text-white p-4"><h1>Facundo Vila</h1></span>
           </div>
         </div>
-        <!--agregar 2 columnas, una para info del perfil, la otra para mostrar publicaciones-->
+        //agregar 2 columnas, una para info del perfil, la otra para mostrar publicaciones//
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-lg-7">
             <app-profile-view></app-profile-view>
@@ -66,4 +89,12 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+<!--<div class="container_img">
+  <img
+    src="https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg"
+    class="img-fluid object-fit-cover"
+    alt="profile_wallpaper"
+  />
+</div>-->
