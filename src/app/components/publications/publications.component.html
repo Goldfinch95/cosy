@@ -1,7 +1,8 @@
-<div class="container-fluid  d-flex flex-column justify-content-center w-50">
+<div class="container-fluid d-flex flex-column justify-content-center">
   @for (publication of allPublications; track $index) {
     @if(publication.image === null){
       <app-post-card
+      class="d-flex justify-content-center py-3"
       (addClickedLikeEvent)="getLike($event)"
       [profileImg]="publication.profile_image"
       [profileName]="publication.fullname"
@@ -10,6 +11,7 @@
     }
     @else {
       <app-post-card
+      class="d-flex justify-content-center py-3"
       (addClickedLikeEvent)="getLike($event)"
       [profileImg]="publication.profile_img"
       [profileName]="publication.profile_name"
