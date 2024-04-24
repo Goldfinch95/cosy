@@ -1,9 +1,8 @@
 <div class="container-fluid">
-  <app-navbar />
-  <div class="row">
-    <div class="col-2 bg-danger">
-      <h1 class="text-white">hola</h1>
-      <app-sidebar [profileData]="profileData"/>
+  <app-navbar  />
+  <div class="row m-0" >
+    <div class="test col-2 d-flex flex-column position-fixed" style="background-color:#36506C;">
+      <app-sidebar class="vh-100 container-fluid flex-grow-1" [profileData]="profileData"/>
     </div>
     <div class="col">
       <app-wall [profileData]="profileData"/>
