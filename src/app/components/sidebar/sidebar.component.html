@@ -1,7 +1,8 @@
 
-  <div class="d-flex flex-column h-100 text-white">
+  <div class="d-flex flex-column h-100 text-white justify-content-around">
+    <div class="pb-5">
     <a
-      class="d-flex justify-content-evenly align-items-center pt-3 text-decoration-none"
+      class="d-flex justify-content-evenly align-items-center pt-1 pb-3 text-decoration-none"
       href="/profile"
     >
       <img
@@ -16,7 +17,7 @@
         >{{ profileData.name }} {{ profileData.lastName }}</span
       >
     </a>
-    <div class="pt-3">
+    <div class="pt-1">
       <li class="d-flex justify-content-evenly align-items-center pt-3">
         <fa-icon class="" [icon]="faUserGroup" style="color: #f0f2f5"></fa-icon>
         <a
@@ -36,56 +37,11 @@
         </a>
       </li>
     </div>
-    <footer class="footer mt-auto py-3 text-center">
-      <a
-        class="nav-link text-white"
-        href="https://my-portfolio-murex-rho.vercel.app/"
-        >Goldfinch 2024</a
-      >
+  </div>
+  <div class="mt-3"></div>
+  <div class="mt-3"></div>
+    <div class="mt-3"></div>
+    <footer class="text-center py-4">
+      <a class="nav-link text-white" href="https://my-portfolio-murex-rho.vercel.app/">Goldfinch 2024</a>
     </footer>
   </div>
-
-  <!--<nav class="navbar navbar-dark bg-dark align-items-start">
-  <div class="container-fluid flex-column justify-content-between">
-    <a class="navbar-brand  d-flex align-items-center" href="/profile">
-      <img
-        [src]="dataURI(profileData.profile_image)"
-        width="50"
-        height="50"
-        class="d-inline-block align-top rounded-circle"
-        alt="profile_image"
-        style="object-fit: cover"
-      />
-      <span class="text-white ps-4"
-        >{{ profileData.name }} {{ profileData.lastName }}</span
-      >
-    </a>
-    <div class="d-flex flex-column w-100 justify-content-between">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <span class="nav-link d-flex align-items-center justify-content-between">
-            <a href="#" class="nav-link d-flex justify-content-between align-items-center">
-              <span class="d-flex align-items-center">
-                <fa-icon [icon]="faUserGroup" style="color: #f0f2f5"></fa-icon>
-              <span class="text-white ms-2">Amigos</span>
-              </span>
-            </a>
-          </span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link d-flex align-items-center justify-content-between " href="#">
-            <span class="d-flex align-items-center">
-              <fa-icon [icon]="faUserGroup" style="color: #f0f2f5"></fa-icon>
-              <span class="text-white ms-2">Grupos</span>
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  </nav>
-  <div class="mt-auto py-4">
-    
-    <a class="nav-link text-white" href="https://my-portfolio-murex-rho.vercel.app/">Goldfinch 2024</a>
-  </div>-->
-

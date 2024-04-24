@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg sticky-top">
+  <!--logo-->
   <a routerLink="/home" class="logo_container navbar-brand">
     <img
       class="rounded-circle"
@@ -20,11 +21,7 @@
   </button>
   <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <fa-icon [icon]="faBell" style="color: #f0f2f5"></fa-icon>
-        </a>
-      </li>
+      <!--notificaciones-->
       <li class="nav-item dropdown">
         <a
           class="nav-link"
@@ -72,6 +69,7 @@
           }
         </ul>
       </li>
+      <!--solicitudes de amistad-->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <fa-icon [icon]="faUserGroup" style="color: #f0f2f5"></fa-icon>
@@ -81,6 +79,7 @@
   </div>
   <div class="d-flex justify-content-center align-items-center flex-grow-1">
     <form class="form-inline my-2 my-lg-0">
+      <!--buscador-->
       <div class="input-group">
         <span class="input-group-text">
           <fa-icon [icon]="faSearch" style="border: #0000"></fa-icon>
@@ -95,6 +94,7 @@
     </form>
   </div>
   <div class="pe-lg-4">
+    <!--salir del home-->
     <a class="nav-link" routerLink="/login">
       <fa-icon [icon]="faDoorOpen" style="color: #f0f2f5"></fa-icon>
     </a>
