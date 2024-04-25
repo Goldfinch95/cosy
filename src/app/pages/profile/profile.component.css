@@ -1,52 +1,23 @@
 .container-fluid {
     padding: 0;
     margin: 0;
+    height: 100vh;
   }
   
-
-.container_box{
-    height: 100%;
-}
-
 .card{
     
     width: 15rem;
-    height: 30%;
+    height: 29.9%;
     margin-left: 1rem;
     background-color: #36506C;
     padding: 2rem;
-    left: 10%;
-}
-
-.card_overlay {
-    top: 76%;
-    left: 80%;
-}
-
-
-
-.container_img{
-    
-    object-fit: cover;
-   width: 100%;
-   padding: 0;
-}
-
-.btn{
-    background-color: #36506C;
-}
-
-.container{
-    margin-right: 1%;
+    left: 23%;
 }
 
 .container_user{
     background-color: #36506C;
-    margin-left: 16%;
-    height: 15%;
+    margin-left: 14%;
+    padding-right: 2rem;
+    
 }
 
-.card_details_overlay{
-    top: 82%;
-    left: 84%;
-}

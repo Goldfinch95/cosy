@@ -1,11 +1,5 @@
 .card{
-    
-    width: 15rem;
-    height: 30%;
-    margin-left: 1rem;
     background-color: #36506C;
-    padding: 2rem;
-    left: 10%;
 }
 
 .card_overlay {
@@ -16,11 +10,8 @@
 
 
 .container_img{
-    
-    margin-top: 4.1rem;
     height: 30%;
     object-fit: cover;
-   
 }
 
 .btn{
