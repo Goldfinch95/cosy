@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PostComponent } from '../../components/post/post.component';
 import { PublicationsComponent } from '../../components/publications/publications.component';
-import * as publicationData from '../../../assets/publications.json'
+
 
 @Component({
   selector: 'app-wall',
@@ -14,6 +14,6 @@ export class WallComponent {
 
   @Input() profileData: any;
 
-  publicationsData = publicationData.publications
+  
   
 }
