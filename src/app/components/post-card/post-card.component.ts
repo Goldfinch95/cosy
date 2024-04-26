@@ -6,7 +6,7 @@ import {
   faShare,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommentsComponent } from '../comments/comments.component';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-post-card',
   standalone: true,
@@ -28,13 +28,11 @@ export class PostCardComponent {
   @Input() postLike!: boolean;
   @Output() addClickedLikeEvent = new EventEmitter<boolean>();
 
-  constructor(private sanitizer: DomSanitizer){
+  constructor(){
 
   }
 
-  dataURI(data: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + data);
-  }
+  
 
   ngOnInit() {
     this.clickedLike = this.postLike;

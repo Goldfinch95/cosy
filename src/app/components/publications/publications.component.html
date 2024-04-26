@@ -8,12 +8,13 @@
       [profileName]="publication.fullname"
       [postData]="publication.content"
       [postLike]="publication.post_like"></app-post-card>
+      
     }
     @else {
       <app-post-card
       class="d-flex justify-content-center py-3"
       (addClickedLikeEvent)="getLike($event)"
-      [profileImg]="publication.profile_img"
+      [profileImg]="publication.profile_image"
       [profileName]="publication.profile_name"
       [postData]="publication.content"
       [postImg]="publication.image"

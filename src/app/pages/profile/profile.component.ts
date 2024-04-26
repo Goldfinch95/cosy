@@ -6,7 +6,8 @@ import { lastValueFrom } from 'rxjs';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileViewComponent } from '../../components/profile-view/profile-view.component';
-
+import { ProfilePublicationsComponent } from '../../components/profile-publications/profile-publications.component';
+ProfilePublicationsComponent
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -15,7 +16,8 @@ import { ProfileViewComponent } from '../../components/profile-view/profile-view
     NavbarComponent,
     SidebarComponent,
     HttpClientModule,
-    ProfileViewComponent
+    ProfileViewComponent,
+    ProfilePublicationsComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
