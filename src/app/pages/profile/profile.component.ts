@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -28,11 +28,14 @@ export class ProfileComponent {
   async ngOnInit(): Promise<void> {
     // Coloca aquí el código que deseas ejecutar al inicializar el componente
     const token = localStorage.getItem('token');
-    const { name, lastName, profile_image }: any = await lastValueFrom(
+    const { name, lastName, profile_image, background_image
+    }: any = await lastValueFrom(
       this.http.get('http://localhost:13000/users/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
     );
-    this.profileData = { name, lastName, profile_image };
+    this.profileData = { name, lastName, profile_image, background_image
+    };
+    
   }
 }
