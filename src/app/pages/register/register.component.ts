@@ -87,7 +87,7 @@ faEyeSlash = faEyeSlash;
     }
     if(this.submitted){
       const {name,lastName,mail,password} = this.registerForm.value
-        this.http.post('http://localhost:13000/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
+        this.http.post('172.21.0.1/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
           this.router.navigateByUrl('/success')
            })
       }
@@ -114,7 +114,7 @@ faEyeSlash = faEyeSlash;
 }*/
 
 
-/*/*const data = this.http.post('http://localhost:13000/users/register', this.registerForm.value).subscribe((res:any)=>{
+/*/*const data = this.http.post('172.21.0.1/users/register', this.registerForm.value).subscribe((res:any)=>{
         })
         console.log(data)*/ 
 

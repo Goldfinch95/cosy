@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     }
     if (this.submitted) {
       try {
-        const res: any = await this.http.post('http://localhost:13000/users/login', this.loginForm.value).toPromise();
+        const res: any = await this.http.post('172.21.0.1/users/login', this.loginForm.value).toPromise();
         console.log(res);
         // Obtener el token
         const token = res.token;
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
     if (this.submitted) {
       try{
-       this.http.post('http://localhost:13000/users/login', this.loginForm.value).subscribe((res: any) => {
+       this.http.post('172.21.0.1/users/login', this.loginForm.value).subscribe((res: any) => {
         console.log(res)
         //obtener el token
         const token = res.token

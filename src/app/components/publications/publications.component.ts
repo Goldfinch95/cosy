@@ -28,7 +28,7 @@ export class PublicationsComponent {
 
   async ngOnInit(): Promise<void> {
     const token = localStorage.getItem('token');
-    const data = await lastValueFrom(this.http.get('http://localhost:13000/publications', {headers: {"Authorization": `Bearer ${token}`}}));
+    const data = await lastValueFrom(this.http.get('172.21.0.1/publications', {headers: {"Authorization": `Bearer ${token}`}}));
     this.allPublications = data
     console.log(this.allPublications)
     /*if(this.allPublications.profile_image === '/images/user.png'){
