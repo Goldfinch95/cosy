@@ -87,7 +87,7 @@ faEyeSlash = faEyeSlash;
     }
     if(this.submitted){
       const {name,lastName,mail,password} = this.registerForm.value
-        this.http.post('172.21.0.1/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
+        this.http.post('http://localhost:13000/users/register', {name,lastName,mail,password}).subscribe((res:any)=>{
           this.router.navigateByUrl('/success')
            })
       }

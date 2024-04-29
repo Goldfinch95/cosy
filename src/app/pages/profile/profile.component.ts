@@ -32,7 +32,7 @@ export class ProfileComponent {
     const token = localStorage.getItem('token');
     const { name, lastName, profile_image, background_image
     }: any = await lastValueFrom(
-      this.http.get('172.21.0.1/users/profile', {
+      this.http.get('http://localhost:13000/users/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
     );

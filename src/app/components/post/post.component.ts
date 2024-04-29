@@ -50,7 +50,7 @@ export class PostComponent {
       image: null,
       isPublic: true
     };
-    const post = await lastValueFrom(this.http.post('172.21.0.1/publications/create', newPost ,{headers: {"Authorization": `Bearer ${token}`}}));
+    const post = await lastValueFrom(this.http.post('http://localhost:13000/publications/create', newPost ,{headers: {"Authorization": `Bearer ${token}`}}));
     this.inputValue = ''
   }
 
