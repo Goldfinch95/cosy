@@ -30,6 +30,7 @@ export class PublicationsComponent {
     const token = localStorage.getItem('token');
     const data = await lastValueFrom(this.http.get('http://localhost:13000/publications', {headers: {"Authorization": `Bearer ${token}`}}));
     this.allPublications = data
+    console.log(data)
     /*if(this.allPublications.profile_image === '/images/user.png'){
       this.allPublications.profile_image = 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
     }

@@ -6,7 +6,8 @@
       [profileName]="publication.fullname"
       [postData]="publication.content"
       [postLike]="publication.post_like"
-      [comments]="publication.comments"></app-post-card>
+      [comments]="publication.comments"
+      [publicationId]="publication.id"></app-post-card>
       
     }
     @else {
@@ -17,7 +18,8 @@
       [postData]="publication.content"
       [postImg]="publication.image"
       [postLike]="publication.post_like"
-      [comments]="publication.comments"></app-post-card>
+      [comments]="publication.comments"
+      [publicationId]="publication.id"></app-post-card>
     }
    }
 

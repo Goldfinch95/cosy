@@ -14,9 +14,9 @@
         </div>
         <!--profile name/lastname-->
         <div class="col d-flex align-items-center">
-          <h1 class="text-white fs-4">{{ profileName }}</h1>
+          <h1 class="text-white fs-4 ps-3">{{ profileName }}</h1>
         </div>
-        <div class="row py-3" style="padding-left: 2.5rem">
+        <div class="row py-3" style="padding-left: 3rem">
           <!--post data-->
           <p class="card-text text-white fs-5">
             {{ postData }}
@@ -24,11 +24,33 @@
         </div>
         <div class="row ms-0 d-flex justify-content-center">
           <!--post image-->
-          @if (postImg) {
-          <div class="px-4 pt-3">
-            <img src="{{ postImg }}" class="img-fluid rounded-5"  alt="post-image" style="border: 5px solid rgb(217 217 217 / 10%)" />
-          </div>
+          @if(postImg){
+            <div class="px-4 pt-3">
+              <img src="{{postImg}}" class="img-fluid rounded-5"  alt="post-image" style="border: 5px solid rgb(217 217 217 / 10%)" />
+            </div>
           }
+        </div>
+        <div class="row d-flex align-items-center justify-content-center ms-1 mt-2 py-2">
+          <!--profile image comment-->
+          <div class="col-2" style="padding-left: 1rem;">
+            <img
+            src="{{ profileImg }}"
+            alt="Imagen"
+            width="70"
+            class="rounded-circle"
+            style="object-fit: cover"
+          />
+          </div>
+           <!--profile comment-->
+          <div class="col" style="padding-right: 2rem;">
+            <input
+            type="text"
+            [(ngModel)]="inputValue"
+            (keyup.enter)="onEnter()"
+            class="form-control"
+            placeholder="Escribe un comentario..."
+          />
+          </div>
         </div>
         <div
           class="row d-flex justify-content-center py-2 mt-3 ps-4"

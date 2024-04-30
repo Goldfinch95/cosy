@@ -6,11 +6,13 @@ import {
   faShare,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommentsComponent } from '../comments/comments.component';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 @Component({
   selector: 'app-post-card',
   standalone: true,
-  imports: [FontAwesomeModule, CommentsComponent],
+  imports: [FontAwesomeModule,FormsModule, CommentsComponent],
   templateUrl: './post-card.component.html',
   styleUrl: './post-card.component.css',
 })
@@ -20,6 +22,9 @@ export class PostCardComponent {
   faShare = faShare;
   clickedLike = false;
   clickedCommentary = false;
+  inputValue = '';
+  
+
 
   @Input() profileImg!: string;
   @Input() profileName!: string;
@@ -27,16 +32,35 @@ export class PostCardComponent {
   @Input() postImg!: string;
   @Input() postLike!: boolean;
   @Input() comments!: any[];
+  @Input() publicationId!: number;
   @Output() addClickedLikeEvent = new EventEmitter<boolean>();
 
-  constructor(){
-
+  constructor(private http: HttpClient){
+    
   }
 
   
 
   ngOnInit() {
     this.clickedLike = this.postLike;
+  }
+
+  async onEnter(){
+      console.log(this.publicationId)
+      if(this.inputValue === ''){
+        return;
+      }
+      const newComment = {
+        content: this.inputValue,
+        image: null,
+        publicationId: this.publicationId
+      }
+      this.inputValue = '';
+      const token = localStorage.getItem('token');
+      const comment = await lastValueFrom(this.http.post('http://localhost:13000/comments/create', newComment,{headers: {"Authorization": `Bearer ${token}`}}));
+      console.log(newComment)
+      console.log(comment)
+      
   }
 
   onClick() {
