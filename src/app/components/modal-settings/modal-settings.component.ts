@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAddressBook, faBriefcase, faCalendar, faEarthAmericas, faEnvelope, faEye, faEyeSlash, faMarsAndVenus, faSchool } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,10 +19,15 @@ export class ModalSettingsComponent {
   faEnvelope = faEnvelope;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
-
+  
+  @Input() profileData: any;
   
   showPassword = false;
   showIcon = false;
+
+  constructor(){
+    console.log(this.profileData)
+  }
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;

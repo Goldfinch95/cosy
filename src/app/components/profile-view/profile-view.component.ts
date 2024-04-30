@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBriefcase, faCalendar, faCamera, faEarth, faEyeSlash, faGear, faHome, faMarsAndVenus } from '@fortawesome/free-solid-svg-icons';
+import {faGear, faAddressBook, faBriefcase, faCalendar, faEarthAmericas, faEnvelope, faEye, faEyeSlash, faMarsAndVenus, faSchool} from '@fortawesome/free-solid-svg-icons';
 import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 
 @Component({
@@ -11,12 +11,20 @@ import { ModalSettingsComponent } from '../modal-settings/modal-settings.compone
   styleUrl: './profile-view.component.css'
 })
 export class ProfileViewComponent {
-  faCamera = faCamera;
-  faBriefcase = faBriefcase;
-  faHome= faHome;
-  faCalendar = faCalendar;
-  faEarth = faEarth;
-  faMarsAndVenus = faMarsAndVenus;
   faGear = faGear;
-  faEyeSlash = faEyeSlash;
+  faAddressBook = faAddressBook;
+  faBriefcase = faBriefcase;
+  faCalendar = faCalendar;
+  faSchool = faSchool;
+  faMarsAndVenus = faMarsAndVenus;
+  faEarthAmericas = faEarthAmericas;
+  faEnvelope = faEnvelope;
+  faEye = faEye;
+
+  @Input() profileData: any;
+
+  constructor(){
+    console.log(this.profileData)
+  }
+ 
 }
