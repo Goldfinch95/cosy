@@ -1,0 +1,24 @@
+input{
+    background-color: rgb(217 217 217 / 10%);
+    outline: none;
+    border: none;
+    color: #ffff;
+    font-size: large;
+}
+
+
+
+input::placeholder{
+    color: #ffff;
+}
+
+.btn{
+    color: #ffff;
+    cursor: auto;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
