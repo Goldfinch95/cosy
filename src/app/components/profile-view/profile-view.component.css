@@ -32,3 +32,15 @@
     top: 82%;
     left: 84%;
 }
+
+input{
+    background-color: rgb(217 217 217 / 10%);
+    outline: none;
+    border: none;
+    color: #ffff;
+    font-size: large;
+}
+
+input::placeholder{
+    color: #ffff;
+}
