@@ -26,6 +26,7 @@ export class PostCardComponent {
   @Input() postData!: string;
   @Input() postImg!: string;
   @Input() postLike!: boolean;
+  @Input() comments!: any[];
   @Output() addClickedLikeEvent = new EventEmitter<boolean>();
 
   constructor(){
