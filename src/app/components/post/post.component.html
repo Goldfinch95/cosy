@@ -12,6 +12,7 @@
           (keyup.enter)="onEnter()" class="form-control" style="width: 90%;" placeholder="Que tal tu dia?">
         </div>
       </div>
+      <!--show image post-->
       @if (selectedFile) {
         <div class="row">
         <div class="px-4 pt-3">
@@ -21,12 +22,14 @@
       }
       <div class="row d-flex justify-content-center py-2 mt-3 ps-4" style="background-color: rgb(217 217 217 / 10%);">
         <div class="col-5 d-flex justify-content-center">
+          <!--image-->
           <label for="formFile" class="label text-white">
             <fa-icon [icon]="faImage"  style="color: #f0f2f5"/> Imagen
             <input type="file" (change)="onFileSelected($event)" id="formFile" style="display: none;">
           </label>
         </div>
         <div class="col-7 d-flex justify-content-center ">
+          <!--image url-->
           <label for="formFile" class="label text-white">
             <fa-icon [icon]="faSmile"  style="color: #f0f2f5"/> Sentimiento/Actividad
             <input type="file" (change)="onFileSelected($event)" id="formFile" style="display: none;">

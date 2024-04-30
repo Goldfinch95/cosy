@@ -1,69 +1,61 @@
-<div class="card w-75">
-    <div class="card-body p-0">
-      <div class="row p-lg-3">
-        <div class="pr col-lg-1 col-md-6">
+<div class="container-fluid py-2">
+  <div class="card">
+    <div class="card-body ps-0 pe-0">
+      <div class="row">
+        <!--perfil image-->
+        <div class="col-3 d-flex justify-content-center">
           <img
             [src]="profileImg"
-            width="90"
-            height="90"
-            alt="Imagen"
+            alt="profile img"
+            width="70"
             class="rounded-circle"
             style="object-fit: cover"
           />
         </div>
-        <div class="col-lg-8 col-md-6 d-flex flex-column  justify-content-center">
-          <div class="row">
-            <h1 class="card-title text-white">{{ profileName }}</h1>
-          </div>
+        <!--profile name/lastname-->
+        <div class="col d-flex align-items-center">
+          <h1 class="text-white fs-4">{{ profileName }}</h1>
         </div>
-      </div>
-      <div class="row mt-2 ps-lg-3">
-        <div class="col">
-          <p class="card-text text-white ps-3">
+        <div class="row py-3" style="padding-left: 2.5rem">
+          <!--post data-->
+          <p class="card-text text-white fs-5">
             {{ postData }}
           </p>
         </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-          <img src="{{ postImg }}" class="card-img-bottom" alt="" />
+        <div class="row ms-0 d-flex justify-content-center">
+          <!--post image-->
+          @if (postImg) {
+          <div class="px-4 pt-3">
+            <img src="{{ postImg }}" class="img-fluid rounded-5"  alt="post-image" style="border: 5px solid rgb(217 217 217 / 10%)" />
+          </div>
+          }
         </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row d-flex justify-content-center py-2">
+        <div
+          class="row d-flex justify-content-center py-2 mt-3 ps-4"
+          style="background-color: rgb(217 217 217 / 10%)"
+        >
           <div class="col d-flex justify-content-center">
-            <button
-              type="button"
-              (click)="onClick()"
-              class="btn text-white border-0 w-100"
-            >
+            <button type="button" (click)="onClick()" class="btn text-white">
               @if (clickedLike || postLike) {
               <fa-icon [icon]="faHeart" style="color: red"></fa-icon>
-              } @else{
+              Me gusta
+              } @else {
               <fa-icon [icon]="faHeart" style="color: #f0f2f5"></fa-icon>
-              } Me gusta
+              Me gusta }
             </button>
           </div>
           <div class="col d-flex justify-content-center">
-            <button
-              type="button"
-              (click)="onClickComment()"
-              class="btn text-white border-0 w-100"
-            >
+            <button type="button" (click)="onClickComment()" class="btn text-white">
               <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
-              Comentar
-            </button>
-          </div>
-          <div class="col d-flex justify-content-center">
-            <button type="button" class="btn text-white border-0 w-100">
-              <fa-icon [icon]="faShare" style="color: #f0f2f5"></fa-icon>
-              Compartir
+              Comentarios
             </button>
           </div>
         </div>
-      </div>
-      @if(clickedCommentary){
+         @if(clickedCommentary){
         <app-comments></app-comments>
       }
+      </div>
     </div>
   </div>
+</div>
+
