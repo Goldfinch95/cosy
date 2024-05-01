@@ -21,12 +21,12 @@ export class ModalSettingsComponent {
   faEyeSlash = faEyeSlash;
   
   @Input() profileData: any;
+  @Input() userData: any;
   
   showPassword = false;
   showIcon = false;
 
   constructor(){
-    console.log(this.profileData)
   }
 
   togglePasswordVisibility() {

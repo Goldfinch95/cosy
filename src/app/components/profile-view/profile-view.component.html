@@ -3,9 +3,11 @@
     class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative"
   >
     <h5 class="card-title text-white fw-bolder fs-2 p-3">Detalles:</h5>
-    <p class="card-text text-white ps-3 pt-1 fs-5">
-      Amantes de los juegos y el boxeo.
-    </p>
+    @if (userData.description != null) {
+      <p class="card-text text-white ps-3 pt-1 fs-5">
+        {{userData.description}}
+      </p>
+    }
     <div class="ps-lg-3 py-3">
       <p class="card-text text-white py-1">
         <fa-icon
@@ -15,37 +17,36 @@
         ></fa-icon>
         Desarrollador Frontend
       </p>
+      @if(userData.address != null){
+        <p class="card-text text-white py-1">
+          <fa-icon
+            [icon]="faAddressBook"
+            class="fa-lg"
+            style="color: #f0f2f5; width: 100%"
+          ></fa-icon>
+          {{userData.address}}
+        </p>
+      }
       <p class="card-text text-white py-1">
-        <fa-icon
-          [icon]="faAddressBook"
-          class="fa-lg"
-          style="color: #f0f2f5; width: 100%"
-        ></fa-icon>
-        Avellaneda
-      </p>
+        @if (userData.birthdate != null) {
+          <p class="card-text text-white py-1">
+            <fa-icon
+              [icon]="faEarthAmericas"
+              class="fa-lg"
+              style="color: #f0f2f5; width: 100%"
+            ></fa-icon>
+            {{userData.birthdate}}
+          </p>
+        }
       <p class="card-text text-white py-1">
-        <fa-icon
-          [icon]="faCalendar"
-          class="fa-lg"
-          style="color: #f0f2f5; width: 100%"
-        ></fa-icon>
-        10/5/95
-      </p>
-      <p class="card-text text-white py-1">
-        <fa-icon
-          [icon]="faEarthAmericas"
-          class="fa-lg"
-          style="color: #f0f2f5; width: 100%"
-        ></fa-icon>
-        Argentina
-      </p>
-      <p class="card-text text-white py-1">
-        <fa-icon
+        @if (userData.gender != null) {
+          <fa-icon
           [icon]="faMarsAndVenus"
           class="fa-lg"
           style="color: #f0f2f5; width: 100%"
         ></fa-icon>
-        Masculino
+        {{userData.gender}}
+        }
       </p>
     </div>
   </div>
@@ -64,5 +65,5 @@
     <input type="file" id="formFile" style="display: none" />
   </button>
   <!-- Modal -->
-  <app-modal-settings [profileData]="profileData"/>
+  <app-modal-settings [profileData]="profileData" [userData]="userData"/>
 </div>

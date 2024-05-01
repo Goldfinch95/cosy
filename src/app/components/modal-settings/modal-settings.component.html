@@ -50,7 +50,7 @@
                   type="url"
                   formControlName="image_url"
                   class="form-control"
-                  placeholder="Ingrese Url de imagen de perfil"
+                  placeholder="{{userData.profile_image ? userData.profile_image : 'url imagen'}}"
                 />
               </div>
             </div>
@@ -68,7 +68,7 @@
                   type="text"
                   formControlName="address"
                   class="form-control"
-                  placeholder="Dirección"
+                  placeholder="{{userData.address ? userData.address : 'dirección'}}"
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
                     <fa-icon [icon]="faAddressBook"></fa-icon>
@@ -81,7 +81,7 @@
                   type="text"
                   formControlName="job"
                   class="form-control"
-                  placeholder="Empleo"
+                  placeholder="{Empleo}"
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
                     <fa-icon [icon]="faBriefcase"></fa-icon>
@@ -96,7 +96,7 @@
                   type="date"
                   formControlName="date"
                   class="form-control"
-                  placeholder="Fecha de nacimiento"
+                  placeholder="{{userData.birthdate}}"
                   
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
@@ -110,7 +110,7 @@
                   type="text"
                   formControlName="school"
                   class="form-control"
-                  placeholder="Escuela"
+                  placeholder="{{userData.school ? userData.school : 'Escuela'}}"
                   
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
@@ -126,7 +126,7 @@
                   type="text"
                   formControlName="gender"
                   class="form-control"
-                  placeholder="Genero"
+                  placeholder="{{userData.gender ? userData.gender : 'Genero'}}"
                   
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
@@ -140,7 +140,7 @@
                   type="text"
                   formControlName="country"
                   class="form-control"
-                  placeholder="País"
+                  placeholder="{{userData.country ? userData.country : 'Pais'}}"
                   
                 />
                 <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
@@ -156,7 +156,7 @@
                   type="text"
                   formControlName="description"
                   class="form-control"
-                  placeholder="Describe quien eres..."
+                  placeholder="{{userData.description ? userData.description : 'Describe quien eres...'}}"
                 />
               </div>
             </div>

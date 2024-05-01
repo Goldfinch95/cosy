@@ -38,6 +38,5 @@ export class ProfileComponent {
     );
     this.profileData = { name, lastName, profile_image, background_image
     };
-    console.log(this.profileData)
   }
 }
