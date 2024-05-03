@@ -1,208 +1,244 @@
 <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="background-color: #36506C;">
-        <div class="modal-header">
-          <h5 class="modal-title text-white" id="exampleModalLabel">Configuración</h5>
-          <button
-            type="button"
-            class="btn-close btn-close-white"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <p class="text-white">
-            Los detalles que selecciones serán públicos y aparecerán en tu
-            perfil.
-          </p>
-
-          <form action="">
-            <div class="row">
-              <div class="col">
-                <!--input name-->
-                <input
-                  type="text"
-                  formControlName="name"
-                  class="form-control"
-                  placeholder="{{profileData.name}}"
-                />
-              </div>
-              <div class="col">
-                <!--input lastName-->
-                <input
-                  type="text"
-                  formControlName="lastName"
-                  class="form-control"
-                  placeholder="{{profileData.lastName}}"
-                />
-              </div>
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background-color: #36506c">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">
+          Configuración
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-white">
+          Los detalles que selecciones serán públicos y aparecerán en tu perfil.
+        </p>
+        <form [formGroup]="editForm">
+          <div class="row">
+            <div class="col">
+              <input
+                type="text"
+                formControlName="name"
+                class="form-control"
+                placeholder="{{ profileData.name }}"
+              />
             </div>
-            <div class="row pt-3">
-              <div class="col">
-                <!--input url img-->
+            <div class="col">
+              <input
+                type="text"
+                formControlName="lastName"
+                class="form-control"
+                placeholder="{{ profileData.lastName }}"
+              />
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <input
+                type="url"
+                formControlName="profile_image"
+                class="form-control"
+                placeholder="{{
+                  userData.profile_image ? userData.profile_image : 'url imagen'
+                }}"
+              />
+            </div>
+          </div>
+          <div class="row pt-4">
+            <p class="text-white">
+              Selecciona aquellos detalles que quieres que se muestren en tu
+              perfil
+            </p>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="input-group">
                 <input
-                  type="url"
-                  formControlName="image_url"
-                  class="form-control"
-                  placeholder="{{userData.profile_image ? userData.profile_image : 'url imagen'}}"
-                />
-              </div>
-            </div>
-            <div class="row pt-4">
-              <p class="text-white">
-                Selecciona aquellos detalles que quieres que se muestren en tu
-                perfil
-              </p>
-            </div>
-            <div class="row">
-              <div class="col">
-                <!--input address-->
-                <div class="input-group">
-                    <input
                   type="text"
                   formControlName="address"
                   class="form-control"
-                  placeholder="{{userData.address ? userData.address : 'dirección'}}"
+                  placeholder="{{
+                    userData.address ? userData.address : 'dirección'
+                  }}"
                 />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faAddressBook"></fa-icon>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                    <input
-                  type="text"
-                  formControlName="job"
-                  class="form-control"
-                  placeholder="{Empleo}"
-                />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faBriefcase"></fa-icon>
-                  </div>
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faAddressBook"></fa-icon>
                 </div>
               </div>
             </div>
-            <div class="row pt-3">
-              <div class="col">
-                <div class="input-group">
-                    <input
-                  type="date"
-                  formControlName="date"
+            <div class="col">
+              <div class="input-group">
+                <input
+                  type="text"
+                  formControlName="work"
                   class="form-control"
-                  placeholder="{{userData.birthdate}}"
-                  
+                  placeholder="{userData.work}"
                 />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faCalendar"></fa-icon>
-                  </div>
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faBriefcase"></fa-icon>
                 </div>
               </div>
-              <div class="col">
-                <div class="input-group">
-                    <input
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <div class="input-group">
+                <input
+                  type="date"
+                  formControlName="birthdate"
+                  class="form-control"
+                  placeholder="{{ userData.birthdate }}"
+                />
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faCalendar"></fa-icon>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <input
                   type="text"
                   formControlName="school"
                   class="form-control"
-                  placeholder="{{userData.school ? userData.school : 'Escuela'}}"
-                  
+                  placeholder="{{
+                    userData.school ? userData.school : 'Escuela'
+                  }}"
                 />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faSchool"></fa-icon>
-                  </div>
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faSchool"></fa-icon>
                 </div>
               </div>
             </div>
-            <div class="row pt-3">
-              <div class="col">
-                <div class="input-group">
-                    <input
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <div class="input-group">
+                <input
                   type="text"
-                  formControlName="gender"
+                  formControlName="genre"
                   class="form-control"
-                  placeholder="{{userData.gender ? userData.gender : 'Genero'}}"
-                  
+                  placeholder="{{
+                    userData.genre ? userData.genre : 'Genero'
+                  }}"
                 />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faMarsAndVenus"></fa-icon>
-                  </div>
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faMarsAndVenus"></fa-icon>
                 </div>
               </div>
-              <div class="col">
-                <div class="input-group">
-                    <input
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <input
                   type="text"
                   formControlName="country"
                   class="form-control"
-                  placeholder="{{userData.country ? userData.country : 'Pais'}}"
-                  
+                  placeholder="{{
+                    userData.country ? userData.country : 'Pais'
+                  }}"
                 />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faEarthAmericas"></fa-icon>
-                  </div>
+                <div
+                  class="btn border-end-0"
+                  style="background-color: rgb(217 217 217 / 10%)"
+                >
+                  <fa-icon [icon]="faEarthAmericas"></fa-icon>
                 </div>
               </div>
             </div>
-            <div class="row pt-3">
-              <p class="text-white">Agrega una presentación</p>
-              <div class="col">
-                <input
-                  type="text"
-                  formControlName="description"
-                  class="form-control"
-                  placeholder="{{userData.description ? userData.description : 'Describe quien eres...'}}"
-                />
-              </div>
+          </div>
+          <div class="row pt-3">
+            <p class="text-white">Agrega una presentación</p>
+            <div class="col">
+              <input
+                type="text"
+                formControlName="description"
+                class="form-control"
+                placeholder="{{
+                  userData.description
+                    ? userData.description
+                    : 'Describe quien eres...'
+                }}"
+              />
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <div class="row">
-            <h5 class="text-white p-0">Detalles de la cuenta</h5>
-            <div class="col p-0">
-                <div class="input-group">
-                    <input
-                  type="email"
-                  formControlName="email"
-                  class="form-control"
-                  placeholder="Email"
-                  
-                />
-                <div class="btn border-end-0" style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="faEnvelope"></fa-icon>
-                  </div>
-                </div>
-                <div class="input-group py-2">
-                    <input
-                    [type]="showPassword ? 'text' : 'password'"
-                  formControlName="password"
-                  class="form-control"
-                  placeholder="Contraseña"
-                  
-                />
-                <button class="btn border-end-0" (click)="togglePasswordVisibility()"  style="background-color: rgb(217 217 217 / 10%);">
-                    <fa-icon [icon]="showIcon ? faEyeSlash : faEye"></fa-icon>
-                  </button>
-                </div>
-            </div>
-            <div class="col d-flex align-items-end justify-content-end">
-              <button type="button" class="btn btn-secondary me-2">Editar</button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
+          </div>
+        </form>
+        -->
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <h5 class="text-white p-0">Detalles de la cuenta</h5>
+          <div class="col p-0">
+            <div class="input-group">
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                placeholder="Email"
+              />
+              <div
+                class="btn border-end-0"
+                style="background-color: rgb(217 217 217 / 10%)"
               >
-                Salir
+                <fa-icon [icon]="faEnvelope"></fa-icon>
+              </div>
+            </div>
+            <div class="input-group py-2">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                formControlName="password"
+                class="form-control"
+                placeholder="Contraseña"
+              />
+              <button
+                class="btn border-end-0"
+                (click)="togglePasswordVisibility()"
+                style="background-color: rgb(217 217 217 / 10%)"
+              >
+                <fa-icon [icon]="showIcon ? faEyeSlash : faEye"></fa-icon>
               </button>
             </div>
+          </div>
+          <div class="col d-flex align-items-end justify-content-end">
+            <button
+              type="button"
+              (click)="onEnter()"
+              class="btn btn-secondary me-2"
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Salir
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

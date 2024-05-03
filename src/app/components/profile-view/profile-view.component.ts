@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {faGear, faAddressBook, faBriefcase, faCalendar, faEarthAmericas, faEnvelope, faEye, faEyeSlash, faMarsAndVenus, faSchool} from '@fortawesome/free-solid-svg-icons';
-import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 import {HttpClient} from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 @Component({
   selector: 'app-profile-view',
   standalone: true,
@@ -32,8 +32,8 @@ export class ProfileViewComponent {
     // Código que deseas ejecutar cuando el componente se inicializa
     console.log('El componente se ha inicializado.');
     const token = localStorage.getItem('token')
-    let {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image}: any = await lastValueFrom(this.http.get('http://localhost:13000/users/profile', {headers: {"Authorization": `Bearer ${token}`}}));
-    this.userData = {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image}
+    let {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image,work}: any = await lastValueFrom(this.http.get('http://localhost:13000/users/profile', {headers: {"Authorization": `Bearer ${token}`}}));
+    this.userData = {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image,work}
     console.log(this.userData)
   }
  

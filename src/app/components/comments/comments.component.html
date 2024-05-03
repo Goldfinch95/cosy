@@ -1,19 +1,20 @@
-<div class="con">
+<div class="con p-3" >
   @for (comment of publicationComment; track $index) {
   <div
     class="row d-flex justify-content-between align-items-center m-auto py-2"
   >
-    <div class="col-1">
+    <div class="col-1" style="padding-left: 1rem;">
       <!--profile comment-->
       <img
-        src="{{ comment.user_profile_image }}"
-        width="40"
-        height="40"
-        class="rounded-circle"
-        style="object-fit: cover"
-      />
+      [src]="comment.user_profile_image"
+      width="50"
+      height="50"
+      class="d-inline-block align-top rounded-circle"
+      alt="profile_image"
+      style="object-fit: cover"
+    />
     </div>
-    <div class="col">
+    <div class="col" style="padding-left: 1rem;">
       <!--profile name comment-->
       <p class="profile text-white">{{ comment.fullName }}</p>
     </div>

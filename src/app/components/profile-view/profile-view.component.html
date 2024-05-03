@@ -9,14 +9,16 @@
       </p>
     }
     <div class="ps-lg-3 py-3">
-      <p class="card-text text-white py-1">
-        <fa-icon
-          [icon]="faBriefcase"
-          class="fa-lg"
-          style="color: #f0f2f5; width: 100%"
-        ></fa-icon>
-        Desarrollador Frontend
-      </p>
+      @if(userData.work != null){
+        <p class="card-text text-white py-1">
+          <fa-icon
+            [icon]="faBriefcase"
+            class="fa-lg"
+            style="color: #f0f2f5; width: 100%"
+          ></fa-icon>
+          {{userData.work}}
+        </p>
+      }
       @if(userData.address != null){
         <p class="card-text text-white py-1">
           <fa-icon
