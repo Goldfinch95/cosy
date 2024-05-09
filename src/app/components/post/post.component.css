@@ -22,3 +22,7 @@
     cursor: pointer;
 }
 
+.centered-placeholder::placeholder {
+    text-align: center; /* Center the placeholder text */
+    
+}
