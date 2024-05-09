@@ -8,13 +8,13 @@
             [src]="profileImg"
             alt="profile img"
             width="70"
-            class="rounded-circle"
+            class="profile-image rounded-circle"
             style="object-fit: cover"
           />
         </div>
         <!--profile name/lastname-->
-        <div class="col d-flex align-items-center">
-          <!--<h1 class="text-white fs-4 ps-3">{{ profileData.name }}</h1>-->
+        <div class="col d-flex align-items-center p-0">
+          <h1 class="text-white fs-4 ">{{ profileName }}</h1>
         </div>
         <div class="row py-3" style="padding-left: 3rem">
           <!--post data-->
@@ -32,17 +32,17 @@
         </div>
         <div class="row d-flex align-items-center justify-content-center ms-1 mt-2 py-2">
           <!--profile image comment-->
-          <div class="col-2" style="padding-left: 1rem;">
+          <div class="col-2" style="padding-left: 1.5rem;">
             <img
-            src="{{ profileImg }}"
-            alt="Imagen"
+            src="{{ profileData.profile_image }}"
+            alt="profile img"
             width="70"
-            class="rounded-circle"
+            class="profile-image rounded-circle"
             style="object-fit: cover"
           />
           </div>
            <!--profile comment-->
-          <div class="col" style="padding-right: 2rem;">
+          <div class="col" style="padding-right: 2rem;margin-left: 1rem;">
             <input
             type="text"
             [(ngModel)]="inputValue"

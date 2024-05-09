@@ -2,8 +2,9 @@
     @if(publication.image === null){
       <app-post-card
       (addClickedLikeEvent)="getLike($event)"
+      [profileData]="profileData"
       [profileImg]="publication.profile_image"
-      
+      [profileName]="publication.fullname"
       [postData]="publication.content"
       [postLike]="publication.post_like"
       [comments]="publication.comments"
@@ -13,8 +14,9 @@
     @else {
       <app-post-card
       (addClickedLikeEvent)="getLike($event)"
+      [profileData]="profileData"
       [profileImg]="publication.profile_image"
-      
+      [profileName]="publication.fullname"
       [postData]="publication.content"
       [postImg]="publication.image"
       [postLike]="publication.post_like"

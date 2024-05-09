@@ -27,6 +27,7 @@ export class PostCardComponent {
 
 @Input() profileData!: any;
   @Input() profileImg!: string;
+  @Input() profileName!: string;
   @Input() postData!: string;
   @Input() postImg!: string;
   @Input() postLike!: boolean;
