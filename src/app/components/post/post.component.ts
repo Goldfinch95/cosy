@@ -5,8 +5,8 @@ import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { PerfilService } from '../../perfil.service';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
-import { routes } from '../../app.routes';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-post',
@@ -43,7 +43,7 @@ export class PostComponent {
   
 
   async onEnter(){
-    if (this.inputValue === ''){
+    if (this.inputValue.length < 4){
       return
     }
     const token = localStorage.getItem('token');
