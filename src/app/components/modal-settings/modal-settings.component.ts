@@ -6,13 +6,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
+RouterLink
+Router
 @Component({
   selector: 'app-modal-settings',
   standalone: true,
   imports: [CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule],
+    FontAwesomeModule,
+    RouterLink],
   templateUrl: './modal-settings.component.html',
   styleUrl: './modal-settings.component.css'
 })
@@ -32,31 +36,30 @@ export class ModalSettingsComponent {
   faEyeSlash = faEyeSlash;
   
   @Input() profileData: any;
-  @Input() userData: any;
+ 
 
   showPassword = false;
   showIcon = false;
   
   
 
-  constructor(private formBuilder:FormBuilder, private http: HttpClient){
+  constructor(private formBuilder:FormBuilder, private http: HttpClient, private router: Router){
     
   }
 
-  ngOnInit(): void{
+  async ngOnInit(): Promise<void>{
     this.editForm = this.formBuilder.group({
-      'name': [''],
-      'lastName': [''],
-      'profile_image': [''],
-      'background_image': [''],
-      'address': [''],
-      'work': [''],
-      'birthdate': [''],
-      'school': [''],
-      'genre': [''],
-      'country': [''],
-      'description': [''],
-      
+      'name': [this.profileData.name ? this.profileData.name : 'Nombre'],
+      'lastName': [this.profileData.lastName ? this.profileData.lastName : 'Apellido'],
+      'profile_image': [this.profileData.profile_image ? this.profileData.profile_image : 'Url Perfil'],
+      'background_image': [this.profileData.background_image ? this.profileData.background_image : 'Url Portada'],
+      'address': [this.profileData.address? this.profileData.address : 'Dirección'],
+      'work': [this.profileData.work ? this.profileData.work : 'Trabajo'],
+      'birthdate': [this.profileData.birthdate ? this.profileData.birthdate : 'Cumpleaños'],
+      'school': [this.profileData.school ? this.profileData.school : 'Escuela'],
+      'genre': [this.profileData.genre ? this.profileData.genre : 'Genero'],
+      'country': [this.profileData.country ? this.profileData.country : 'País'],
+      'description': [this.profileData.description ? this.profileData.description : 'Descripción...'],
     })
     
 }
@@ -67,12 +70,13 @@ export class ModalSettingsComponent {
   }
 
   async onEnter(): Promise<void>{
-    console.log('editado')
-    console.log(this.editForm)
     const token = localStorage.getItem('token');
     const formUser = this.editForm.value
+    console.log(formUser)
     const dataUser = await lastValueFrom(this.http.put('http://localhost:13000/users/profile',formUser, {headers: {"Authorization": `Bearer ${token}`}}))
-    console.log(dataUser)
+    location.reload() 
+   console.log(dataUser)
+   
 }
 }
 

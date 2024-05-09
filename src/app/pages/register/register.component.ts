@@ -48,8 +48,8 @@ faEyeSlash = faEyeSlash;
     this.registerForm = this.formBuilder.group({
       'name': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
       'lastName': ['', [Validators.required,Validators.minLength(4), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z\s']+$/)]],
-      'mail': ['', [Validators.required,Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
-      'password': ['',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
+      'mail': ['', [Validators.required,Validators.minLength(5),Validators.maxLength(256),Validators.email,Validators.pattern(/^.+@.+\..+$/)]],
+      'password': ['',[Validators.required,Validators.minLength(8),Validators.maxLength(16),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       'secondPassword': ['', [Validators.required]],
     })
     

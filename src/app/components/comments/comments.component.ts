@@ -21,6 +21,7 @@ export class CommentsComponent {
 
   ngOnInit(): void {
    console.log(this.publicationComment[0].content)
+   
   }
 
   /*onEnter(){

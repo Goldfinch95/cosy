@@ -3,19 +3,18 @@
     <div class="card-body ps-0 pe-0">
       <div class="row">
         <!--perfil image-->
-        <div class="col-3 d-flex justify-content-center p-0">
+        <div class="col-3 d-flex justify-content-center">
           <img
-          [src]="profileImg"
-          width="70"
-          height="70"
-          class="d-inline-block align-top rounded-circle"
-          alt="profile_image"
-          style="object-fit: cover"
-        />
+            [src]="profileImg"
+            alt="profile img"
+            width="70"
+            class="rounded-circle"
+            style="object-fit: cover"
+          />
         </div>
         <!--profile name/lastname-->
-        <div class="col d-flex align-items-center p-0 mr-5">
-          <h1 class="text-white fs-4">{{ profileName }}</h1>
+        <div class="col d-flex align-items-center">
+          <!--<h1 class="text-white fs-4 ps-3">{{ profileData.name }}</h1>-->
         </div>
         <div class="row py-3" style="padding-left: 3rem">
           <!--post data-->
@@ -33,13 +32,12 @@
         </div>
         <div class="row d-flex align-items-center justify-content-center ms-1 mt-2 py-2">
           <!--profile image comment-->
-          <div class="col-2" style="padding-left: 1.5rem;">
+          <div class="col-2" style="padding-left: 1rem;">
             <img
-            [src]="profileImg"
-            width="60"
-            height="60"
-            class="d-inline-block align-top rounded-circle"
-            alt="profile_image"
+            src="{{ profileImg }}"
+            alt="Imagen"
+            width="70"
+            class="rounded-circle"
             style="object-fit: cover"
           />
           </div>

@@ -48,7 +48,19 @@
                 formControlName="profile_image"
                 class="form-control"
                 placeholder="{{
-                  userData.profile_image ? userData.profile_image : 'url imagen'
+                  profileData.profile_image ? profileData.profile_image : 'url imagen'
+                }}"
+              />
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <input
+                type="url"
+                formControlName="background_image"
+                class="form-control"
+                placeholder="{{
+                  profileData.background_image ? profileData.background_image : 'url portada'
                 }}"
               />
             </div>
@@ -67,7 +79,7 @@
                   formControlName="address"
                   class="form-control"
                   placeholder="{{
-                    userData.address ? userData.address : 'dirección'
+                    profileData.address ? profileData.address : 'dirección'
                   }}"
                 />
                 <div
@@ -84,7 +96,9 @@
                   type="text"
                   formControlName="work"
                   class="form-control"
-                  placeholder="{userData.work}"
+                  placeholder="{{
+                    profileData.work ? profileData.work : 'Trabajo'
+                  }}"
                 />
                 <div
                   class="btn border-end-0"
@@ -102,7 +116,7 @@
                   type="date"
                   formControlName="birthdate"
                   class="form-control"
-                  placeholder="{{ userData.birthdate }}"
+                  placeholder="{{ profileData.birthdate ? profileData.birthdate : 'Fecha de nacimiento' }}"
                 />
                 <div
                   class="btn border-end-0"
@@ -119,7 +133,7 @@
                   formControlName="school"
                   class="form-control"
                   placeholder="{{
-                    userData.school ? userData.school : 'Escuela'
+                    profileData.school ? profileData.school : 'Escuela'
                   }}"
                 />
                 <div
@@ -139,7 +153,7 @@
                   formControlName="genre"
                   class="form-control"
                   placeholder="{{
-                    userData.genre ? userData.genre : 'Genero'
+                    profileData.genre ? profileData.genre : 'Genero'
                   }}"
                 />
                 <div
@@ -157,7 +171,7 @@
                   formControlName="country"
                   class="form-control"
                   placeholder="{{
-                    userData.country ? userData.country : 'Pais'
+                    profileData.country ? profileData.country : 'Pais'
                   }}"
                 />
                 <div
@@ -177,8 +191,8 @@
                 formControlName="description"
                 class="form-control"
                 placeholder="{{
-                  userData.description
-                    ? userData.description
+                  profileData.description
+                    ? profileData.description
                     : 'Describe quien eres...'
                 }}"
               />
@@ -224,6 +238,7 @@
           <div class="col d-flex align-items-end justify-content-end">
             <button
               type="button"
+              RouterLink="/profile"
               (click)="onEnter()"
               class="btn btn-secondary me-2"
             >

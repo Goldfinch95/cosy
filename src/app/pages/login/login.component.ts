@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   showPassword = false;
   showIcon = false;
   perfilData: any;
+  error = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private perfilService: PerfilService, private router: Router) {}
  
@@ -41,12 +42,10 @@ export class LoginComponent implements OnInit {
     //requiere email (@) y un patron de letras (.) letras
     //requiere una contraseña minimo 8 caracteres y un patron de una minuscula,una mayuscula, un numero y un caracter especial.
     this.loginForm = this.formBuilder.group({
-      'mail': ['', [Validators.required, Validators.email, Validators.pattern(/^.+@.+\..+$/)]],
-      'password': ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]]
+      'mail': ['', [Validators.required,Validators.minLength(5),Validators.maxLength(256), Validators.email, Validators.pattern(/^.+@.+\..+$/)]],
+      'password': ['', [Validators.required, Validators.minLength(8),Validators.maxLength(16), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]]
     });
   }
-
-
 
   //HACER POST
 
@@ -67,6 +66,8 @@ export class LoginComponent implements OnInit {
         // Ir al home
         this.router.navigateByUrl('/home');
       } catch (error: any) {
+        
+        this.error = true;
         this.windowError = true;
         console.log(this.windowError)
       }

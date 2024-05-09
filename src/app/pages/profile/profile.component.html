@@ -18,7 +18,8 @@
                 style="height: 30vh; overflow: hidden"
               >
                 <img
-                  src="{{profileData.background_image}}"
+                  src="{{profileData.background_image
+                  }}"
                   class="img-fluid"
                   alt="profile_wallpaper"
                   style="object-fit: cover; width: 100%; height: 100%"
@@ -28,16 +29,27 @@
                 class="card rounded rounded-5 position-absolute translate-middle border border-0"
                 
               >
-              <div class="rounded border border-3 border-info rounded-5 h-100" style="background-color: #556080;">
-                <img
-                src="{{profileData.profile_image}}"
-                
-                style="object-fit: contain; width: 100%; height: 100%; 
-                "
-                alt="profile_img"
-              />
-              </div>
-               
+              @if(profileData.profile_image === "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              ){
+                <div class="rounded border border-3 border-info rounded-5 h-100" style="background-color: #556080;">
+                  <img
+                  src="{{profileData.profile_image}}"
+                  class="img-fluid  h-100"
+                  
+                  alt="profile_img"
+                />
+                </div>
+              }
+              @else {
+                <div class="h-100">
+                  <img
+                  src="{{profileData.profile_image}}"
+                  class="img-fluid rounded border border-3 border-info rounded-5 h-100"
+                  
+                  alt="profile_img"
+                />
+                </div>
+              } 
               </div>
               <div
           class="container_user col d-flex justify-content-center align-items-center py-3"

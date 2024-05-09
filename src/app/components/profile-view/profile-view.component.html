@@ -2,70 +2,117 @@
   <div
     class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative"
   >
-    <h5 class="card-title text-white fw-bolder fs-2 p-3">Detalles:</h5>
-    @if (userData.description != null) {
-      <p class="card-text text-white ps-3 pt-1 fs-5">
-        {{userData.description}}
-      </p>
-    }
-    <div class="ps-lg-3 py-3">
-      @if(userData.work != null){
-        <p class="card-text text-white py-1">
-          <fa-icon
-            [icon]="faBriefcase"
-            class="fa-lg"
-            style="color: #f0f2f5; width: 100%"
-          ></fa-icon>
-          {{userData.work}}
+  <div>
+    <h5 class="card-title text-white fw-bolder fs-2 pb-2">Detalles:</h5>
+    <div>
+    @if (profileData.description != null) {
+    <div class="row pb-3">
+      <div class="col">
+        <p class="card-text text-white fs-5">
+          {{ profileData.description }}
         </p>
-      }
-      @if(userData.address != null){
-        <p class="card-text text-white py-1">
+      </div>
+    </div>
+    }
+  </div>
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+        @if(profileData.address != null){
+        <p class="card-text py-1">
           <fa-icon
             [icon]="faAddressBook"
             class="fa-lg"
-            style="color: #f0f2f5; width: 100%"
+            style="color: #f0f2f5"
           ></fa-icon>
-          {{userData.address}}
+          {{ profileData.address }}
         </p>
-      }
-      <p class="card-text text-white py-1">
-        @if (userData.birthdate != null) {
-          <p class="card-text text-white py-1">
+        }
+      </div>
+      <div class="col p-0">
+        @if(profileData.work != null){
+        <p class="card-text  py-1">
+          <fa-icon
+            [icon]="faBriefcase"
+            class="fa-lg"
+            style="color: #f0f2f5"
+          ></fa-icon>
+          {{ profileData.work }}
+        </p>
+        }
+      </div>
+    </div>  
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+          @if(profileData.birthdate != null){
+          <p class="card-text py-1">
             <fa-icon
-              [icon]="faEarthAmericas"
+              [icon]="faCalendar"
               class="fa-lg"
               style="color: #f0f2f5; width: 100%"
             ></fa-icon>
-            {{userData.birthdate}}
+            {{ profileData.birthdate }}
           </p>
-        }
-      <p class="card-text text-white py-1">
-        @if (userData.gender != null) {
-          <fa-icon
-          [icon]="faMarsAndVenus"
-          class="fa-lg"
-          style="color: #f0f2f5; width: 100%"
-        ></fa-icon>
-        {{userData.gender}}
-        }
-      </p>
+          }
+      </div>
+      <div class="col p-0">
+          @if(profileData.school != null){
+          <p class="card-text  py-1">
+            <fa-icon
+              [icon]="faSchool"
+              class="fa-lg"
+              style="color: #f0f2f5; width: 100%"
+            ></fa-icon>
+            {{ profileData.school }}
+          </p>
+          }
+      </div>
+    </div>  
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+            @if(profileData.genre != null){
+            <p class="card-text py-1">
+              <fa-icon
+                [icon]="faMarsAndVenus"
+                class="fa-lg"
+                style="color: #f0f2f5; width: 100%"
+              ></fa-icon>
+              {{ profileData.genre }}
+            </p>
+            }
+      </div>
+      <div class="col p-0">
+            @if(profileData.country != null){
+            <p class="card-text  py-1">
+              <fa-icon
+                [icon]="faEarthAmericas"
+                class="fa-lg"
+                style="color: #f0f2f5; width: 100%"
+              ></fa-icon>
+              {{ profileData.country }}
+            </p>
+            }
+      </div>
     </div>
   </div>
-  <!-- Button trigger modal -->
-  <button
-    type="button"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-    class="card_details_overlay btn p-lg-3 rounded rounded-5 border border-3 border-info position-absolute"
-  >
-    <fa-icon
-      [icon]="faGear"
-      class="fa-lg"
-      style="color: #f0f2f5; width: 100%"
-    ></fa-icon>
-    <input type="file" id="formFile" style="display: none" />
-  </button>
-  <!-- Modal -->
-  <app-modal-settings [profileData]="profileData" [userData]="userData"/>
+    </div>
+    
+    <div class="">
+      <button
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      class="card_details_overlay btn p-lg-3 rounded rounded-5 border border-3 border-info position-absolute"
+    >
+      <fa-icon
+        [icon]="faGear"
+        class="fa-lg"
+        style="color: #f0f2f5; width: 100%"
+      ></fa-icon>
+      <input type="file" id="formFile" style="display: none" />
+    </button>
+    </div>
+    
+    <app-modal-settings [profileData]="profileData" />
 </div>
+
+

@@ -25,18 +25,17 @@ ProfilePublicationsComponent
 export class ProfileComponent {
   faCamera = faCamera;
   profileData: any;
+  
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
     // Coloca aquí el código que deseas ejecutar al inicializar el componente
     const token = localStorage.getItem('token');
-    const { name, lastName, profile_image, background_image
-    }: any = await lastValueFrom(
+    const profile : any = await lastValueFrom(
       this.http.get('http://localhost:13000/users/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
     );
-    this.profileData = { name, lastName, profile_image, background_image
-    };
+    this.profileData = profile;
   }
 }

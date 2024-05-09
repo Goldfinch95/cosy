@@ -23,7 +23,8 @@ export class ProfileViewComponent {
   faEye = faEye;
 
   @Input() profileData: any;
-  userData: any;
+
+  
 
   constructor(private http: HttpClient){
   }
@@ -31,10 +32,6 @@ export class ProfileViewComponent {
   async ngOnInit(): Promise<void> {
     // Código que deseas ejecutar cuando el componente se inicializa
     console.log('El componente se ha inicializado.');
-    const token = localStorage.getItem('token')
-    let {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image,work}: any = await lastValueFrom(this.http.get('http://localhost:13000/users/profile', {headers: {"Authorization": `Bearer ${token}`}}));
-    this.userData = {name,lastName,address,birthdate,school,genre,country,description,profile_image,background_image,work}
-    console.log(this.userData)
   }
  
 }

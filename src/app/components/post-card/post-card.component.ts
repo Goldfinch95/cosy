@@ -25,9 +25,8 @@ export class PostCardComponent {
   inputValue = '';
   
 
-
+@Input() profileData!: any;
   @Input() profileImg!: string;
-  @Input() profileName!: string;
   @Input() postData!: string;
   @Input() postImg!: string;
   @Input() postLike!: boolean;
@@ -43,6 +42,7 @@ export class PostCardComponent {
 
   ngOnInit() {
     this.clickedLike = this.postLike;
+    console.log(this.profileData)
   }
 
   async onEnter(){
@@ -58,9 +58,7 @@ export class PostCardComponent {
       this.inputValue = '';
       const token = localStorage.getItem('token');
       const comment = await lastValueFrom(this.http.post('http://localhost:13000/comments/create', newComment,{headers: {"Authorization": `Bearer ${token}`}}));
-      console.log(newComment)
-      console.log(comment)
-      
+      location.reload()
   }
 
   onClick() {

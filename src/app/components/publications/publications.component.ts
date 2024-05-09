@@ -18,7 +18,7 @@ export class PublicationsComponent {
   clickedLike: boolean = false;
   allPublications: any;
   @Input() publicationsData: any[] = []
-  
+  @Input() profileData: any;
   
   getLike(clickedLike: boolean){
     this.clickedLike = clickedLike

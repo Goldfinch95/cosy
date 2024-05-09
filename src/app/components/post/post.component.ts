@@ -3,9 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { PerfilService } from '../../perfil.service';
-
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
+import { routes } from '../../app.routes';
+
 @Component({
   selector: 'app-post',
   standalone: true,
@@ -26,7 +28,7 @@ export class PostComponent {
   @Input() profileData: any;
  
 
-  constructor(private http: HttpClient, private perfilService: PerfilService) {}
+  constructor(private http: HttpClient, private perfilService: PerfilService, private router: Router) {}
 
   ngOnInit(): void {
     this.perfilData = this.perfilService.getProfile();
@@ -51,7 +53,7 @@ export class PostComponent {
       isPublic: true
     };
     const post = await lastValueFrom(this.http.post('http://localhost:13000/publications/create', newPost ,{headers: {"Authorization": `Bearer ${token}`}}));
-    this.inputValue = ''
+    location.reload()  
   }
 
   getImageUrl(){
