@@ -29,16 +29,35 @@
                 type="text"
                 formControlName="name"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid': submitted && editForm.controls['name'].errors
+                }"
                 placeholder="{{ profileData.name }}"
               />
+              <div
+                class="text-danger ps-1 pt-3"
+                *ngIf="submitted && editForm.controls['name'].errors"
+              >
+                Se necesita de un Nombre.
+              </div>
             </div>
             <div class="col">
               <input
                 type="text"
                 formControlName="lastName"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted && editForm.controls['lastName'].errors
+                }"
                 placeholder="{{ profileData.lastName }}"
               />
+              <div
+                class="text-danger ps-1 pt-3"
+                *ngIf="submitted && editForm.controls['lastName'].errors"
+              >
+                Se necesita de un Apellido.
+              </div>
             </div>
           </div>
           <div class="row pt-3">
@@ -47,10 +66,15 @@
                 type="url"
                 formControlName="profile_image"
                 class="form-control"
-                placeholder="{{
-                  profileData.profile_image ? profileData.profile_image : 'url imagen'
-                }}"
+                [ngClass]="{ 'is-invalid': submitted && editForm.controls['profile_image'].errors?.['required'] }"
+                placeholder="{{ profileData.profile }}"
               />
+              <div
+                class="text-danger ps-1 pt-3"
+                *ngIf="submitted && editForm.controls['profile_image'].errors?.['required']"
+              >
+                Se necesita una URL del perfil.
+              </div>
             </div>
           </div>
           <div class="row pt-3">
@@ -59,10 +83,15 @@
                 type="url"
                 formControlName="background_image"
                 class="form-control"
-                placeholder="{{
-                  profileData.background_image ? profileData.background_image : 'url portada'
-                }}"
+                [ngClass]="{ 'is-invalid': submitted && editForm.controls['background_image'].errors?.['required'] }"
+                placeholder="{{ profileData.background_image }}"
               />
+              <div
+                class="text-danger ps-1 pt-3"
+                *ngIf="submitted && editForm.controls['background_image'].errors?.['required']"
+              >
+                Se necesita una URL de la portada.
+              </div>
             </div>
           </div>
           <div class="row pt-4">
@@ -78,6 +107,10 @@
                   type="text"
                   formControlName="address"
                   class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['address'].errors
+                  }"
                   placeholder="{{
                     profileData.address ? profileData.address : 'dirección'
                   }}"
@@ -88,6 +121,12 @@
                 >
                   <fa-icon [icon]="faAddressBook"></fa-icon>
                 </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['address'].errors"
+                >
+                  Se necesita de una Dirección valida.
+                </div>
               </div>
             </div>
             <div class="col">
@@ -96,8 +135,12 @@
                   type="text"
                   formControlName="work"
                   class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['work'].errors
+                  }"
                   placeholder="{{
-                    profileData.work ? profileData.work : 'Trabajo'
+                    profileData.work ? profileData.work : 'work'
                   }}"
                 />
                 <div
@@ -105,6 +148,12 @@
                   style="background-color: rgb(217 217 217 / 10%)"
                 >
                   <fa-icon [icon]="faBriefcase"></fa-icon>
+                </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['work'].errors"
+                >
+                  Se necesita de un Trabajo.
                 </div>
               </div>
             </div>
@@ -116,13 +165,26 @@
                   type="date"
                   formControlName="birthdate"
                   class="form-control"
-                  placeholder="{{ profileData.birthdate ? profileData.birthdate : 'Fecha de nacimiento' }}"
+                  [ngClass]="{
+                    'is-invalid': submitted && editForm.controls['birthdate'].errors && editForm.controls['birthdate'].errors['invalidBirthdate']
+                  }"
+                  placeholder="{{
+                    profileData.birthdate
+                      ? profileData.birthdate
+                      : 'Fecha de nacimiento'
+                  }}"
                 />
                 <div
                   class="btn border-end-0"
                   style="background-color: rgb(217 217 217 / 10%)"
                 >
                   <fa-icon [icon]="faCalendar"></fa-icon>
+                </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['birthdate'].errors && editForm.controls['birthdate'].errors['invalidBirthdate']"
+                >
+                 Ingrese una fecha de nacimiento correcta.
                 </div>
               </div>
             </div>
@@ -132,6 +194,10 @@
                   type="text"
                   formControlName="school"
                   class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['school'].errors
+                  }"
                   placeholder="{{
                     profileData.school ? profileData.school : 'Escuela'
                   }}"
@@ -141,6 +207,12 @@
                   style="background-color: rgb(217 217 217 / 10%)"
                 >
                   <fa-icon [icon]="faSchool"></fa-icon>
+                </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['school'].errors"
+                >
+                  Se necesita de una Escuela.
                 </div>
               </div>
             </div>
@@ -152,6 +224,10 @@
                   type="text"
                   formControlName="genre"
                   class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['genre'].errors
+                  }"
                   placeholder="{{
                     profileData.genre ? profileData.genre : 'Genero'
                   }}"
@@ -162,6 +238,12 @@
                 >
                   <fa-icon [icon]="faMarsAndVenus"></fa-icon>
                 </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['genre'].errors"
+                >
+                  Se necesita de un Genero.
+                </div>
               </div>
             </div>
             <div class="col">
@@ -170,6 +252,10 @@
                   type="text"
                   formControlName="country"
                   class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['country'].errors
+                  }"
                   placeholder="{{
                     profileData.country ? profileData.country : 'Pais'
                   }}"
@@ -180,6 +266,12 @@
                 >
                   <fa-icon [icon]="faEarthAmericas"></fa-icon>
                 </div>
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['country'].errors"
+                >
+                  Se necesita agregar la Nacionalidad.
+                </div>
               </div>
             </div>
           </div>
@@ -187,19 +279,26 @@
             <p class="text-white">Agrega una presentación</p>
             <div class="col">
               <input
-                type="text"
-                formControlName="description"
-                class="form-control"
-                placeholder="{{
-                  profileData.description
-                    ? profileData.description
-                    : 'Describe quien eres...'
-                }}"
-              />
+                  type="text"
+                  formControlName="description"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted && editForm.controls['description'].errors
+                  }"
+                  placeholder="{{
+                    profileData.description ? profileData.description : 'Describe quien eres...'
+                  }}"
+                />
+                <div
+                  class="text-danger ps-1 pt-3"
+                  *ngIf="submitted && editForm.controls['description'].errors"
+                >
+                  Agrega una Descripción.
+                </div>
             </div>
           </div>
         </form>
-        -->
       </div>
       <div class="modal-footer">
         <div class="row">
@@ -239,7 +338,7 @@
             <button
               type="button"
               RouterLink="/profile"
-              (click)="onEnter()"
+              (click)="onSubmit()"
               class="btn btn-secondary me-2"
             >
               Editar

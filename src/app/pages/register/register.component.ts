@@ -95,49 +95,6 @@ faEyeSlash = faEyeSlash;
   }
   
 
-  /*onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    this.getImageUrl(); // Llamar a getImageUrl() después de seleccionar el archivo
-  }*/
-
-  /*getImageUrl(){
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.selectedFileDataUrl = reader.result as string;
-        this.registerForm.patchValue({
-          apellido: this.selectedFileDataUrl // Asignar la URL de la imagen al campo 'apellido'
-        });
-      };
-      reader.readAsDataURL(this.selectedFile);
-    }}
-}*/
+  
 
 
-/*/*const data = this.http.post('172.21.0.1/users/register', this.registerForm.value).subscribe((res:any)=>{
-        })
-        console.log(data)*/ 
-
-
-        /*if(this.submitted){
-      this.http.get('http://localhost:8000/clientes').subscribe((res:any)=>{
-        const users = res.data[0];
-        const userFound = users.filter((user:any)=>
-        user.email === this.registerForm.value.email 
-        );
-        if(userFound.length > 0){
-          return alert('Este Usuario ya existe');
-        }
-        else {
-          this.http.post('http://localhost:8000/clientes/', this.registerForm.value).subscribe((res:any)=>{
-            if(!res.result){
-              alert(res.message)
-            }
-          })
-          this.router.navigateByUrl('/login')
-        }
-      })
-    } */
-
-
-    /*this.selectedFileDataUrl, */
