@@ -13,18 +13,10 @@
         <div class="col">
           <div class="row g-0 d-flex flex-column">
             <div class="col ps-0">
-              <div
-                class="img-container d-flex align-items-center position-relative"
-                style="height: 30vh; overflow: hidden"
-              >
-                <img
-                  src="{{profileData.background_image
-                  }}"
-                  class="img-fluid"
-                  alt="profile_wallpaper"
-                  style="object-fit: cover; width: 100%; height: 100%"
-                />
-              </div>
+              <div class="img-container" style="height: 35vh; overflow: hidden; background-image: url('{{ profileData.background_image }}'); background-size:cover; background-position: center; background-repeat: no-repeat;">
+                <!-- No necesitas la etiqueta <img> aquí -->
+            </div>
+            
               <div
                 class="card rounded rounded-5 position-absolute translate-middle border border-0"
                 
