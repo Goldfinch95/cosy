@@ -43,11 +43,9 @@ export class PostCardComponent {
 
   ngOnInit() {
     this.clickedLike = this.postLike;
-    console.log(this.profileData)
   }
 
   async onEnter(){
-      console.log(this.publicationId)
       if(this.inputValue === ''){
         return;
       }

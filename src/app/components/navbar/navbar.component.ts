@@ -8,11 +8,15 @@ import {
   faSearch,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { promises } from 'dns';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [FontAwesomeModule, RouterLink],
+  imports: [FontAwesomeModule, RouterLink, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -22,6 +26,8 @@ export class NavbarComponent {
   faUserGroup = faUserGroup;
   faDoorOpen = faDoorOpen;
   faSearch = faSearch;
+
+  inputSearchValue = "";
   
 
   notifications = [
@@ -48,4 +54,38 @@ export class NavbarComponent {
   ];
 
 
+  filteredNotifications: any[] = [];
+
+  data: any;
+
+  constructor(private http: HttpClient){
+    
+  }
+
+  onEnter(){
+    if(this.inputSearchValue === ""){
+      return
+    }
+    this.fetchUsers();
+     this.filteredNotifications = this.notifications.filter(notification => notification.profile_name.toLowerCase().includes(this.inputSearchValue.toLowerCase()));
+     console.log(this.filteredNotifications)
+
+    /*} else {
+      this.filteredNotifications = this.notifications.filter(notification =>
+        notification.profile_name.toLowerCase().includes(this.inputSearchValue.toLowerCase())
+      );
+    }*/
+  }
+
+  async fetchUsers(): Promise<void>{
+    try {
+      const token = localStorage.getItem('token');
+      this.data = await lastValueFrom(this.http.get('http://localhost:13000/users'));
+      
+      console.log(this.data)
+    } catch (error: any) {
+      console.error('Error fetching users:', error);
+    }
+  }
+  
 }

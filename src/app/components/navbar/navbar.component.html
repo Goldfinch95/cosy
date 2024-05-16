@@ -46,7 +46,10 @@
                     height="40"
                     class="rounded-circle"
                   />
-                  <span class="comment text-white "><span class="text-info">Dio like</span> a tu publicación.</span>
+                  <span class="comment text-white"
+                    ><span class="text-info">Dio like</span> a tu
+                    publicación.</span
+                  >
                 </a>
               </li>
             </div>
@@ -60,7 +63,9 @@
                     height="40"
                     class="rounded-circle"
                   />
-                  <span class="text-white ms-2"> <span class="text-info">Comentó</span> tu publicación.</span></a
+                  <span class="text-white ms-2">
+                    <span class="text-info">Comentó</span> tu publicación.</span
+                  ></a
                 >
               </li>
             </div>
@@ -77,21 +82,41 @@
       </li>
     </ul>
   </div>
-  <div class="search d-flex justify-content-center align-items-center flex-grow-1">
-    <form class="form-inline my-2 my-lg-0">
+  <div
+    class="search d-flex justify-content-center align-items-center flex-grow-1"
+  >
+    <div class="form-inline my-2 my-lg-0">
       <!--buscador-->
       <div class="input-group">
         <span class="input-group-text">
-          <fa-icon [icon]="faSearch" style="border: #0000"></fa-icon>
+          <button class="border-0 bg-transparent" (click)="onEnter()">
+            <fa-icon [icon]="faSearch" style="border: #0000"></fa-icon>
+          </button>
         </span>
         <input
           class="form-control"
           type="search"
+          [(ngModel)]="inputSearchValue"
+          (keyup)="onEnter()"
           placeholder="Buscar"
           aria-label="Search"
         />
       </div>
-    </form>
+      @if(inputSearchValue != ''){
+        <div class="options input-group form-control d-flex flex-column position-absolute">
+          @for (notification of filteredNotifications; track $index) {
+          <div class="row ms-3 align-items-center">
+            <div class="col-1">
+              <img src="{{notification.profile_img}}" width="40"
+              height="40"
+              class="rounded-circle">
+            </div>
+            <div class="col-11">{{notification.profile_name}}</div>
+          </div>
+          }
+        </div>
+      }
+    </div>
   </div>
   <div class="pe-lg-4">
     <!--salir del home-->
