@@ -54,9 +54,8 @@ export class NavbarComponent {
   ];
 
 
-  filteredNotifications: any[] = [];
-
-  data: any;
+  filteredNotifications: UserData[] = [];
+  data: UserData[] = [];
 
   constructor(private http: HttpClient){
     
@@ -67,7 +66,8 @@ export class NavbarComponent {
       return
     }
     this.fetchUsers();
-     this.filteredNotifications = this.notifications.filter(notification => notification.profile_name.toLowerCase().includes(this.inputSearchValue.toLowerCase()));
+     this.filteredNotifications = this.data.filter( userData => userData.name.toLowerCase().includes(this.inputSearchValue.toLowerCase()) ||
+     userData.lastName.toLowerCase().includes(this.inputSearchValue.toLowerCase()));
      console.log(this.filteredNotifications)
 
     /*} else {
@@ -80,7 +80,7 @@ export class NavbarComponent {
   async fetchUsers(): Promise<void>{
     try {
       const token = localStorage.getItem('token');
-      this.data = await lastValueFrom(this.http.get('http://localhost:13000/users'));
+      this.data = await lastValueFrom(this.http.get<any>('http://localhost:13000/users/allProfiles', { headers: { "Authorization": `Bearer ${token}` } }));
       
       console.log(this.data)
     } catch (error: any) {
@@ -88,4 +88,9 @@ export class NavbarComponent {
     }
   }
   
+}
+interface UserData {
+  name: string;
+  lastName: string;
+  // otras propiedades si las hay
 }

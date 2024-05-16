@@ -104,14 +104,14 @@
       </div>
       @if(inputSearchValue != ''){
         <div class="options input-group form-control d-flex flex-column position-absolute">
-          @for (notification of filteredNotifications; track $index) {
+          @for (user of filteredNotifications; track $index) {
           <div class="row ms-3 align-items-center">
             <div class="col-1">
-              <img src="{{notification.profile_img}}" width="40"
+              <!--<img src="{{user.profile_img}}" width="40"
               height="40"
-              class="rounded-circle">
+              class="rounded-circle">-->
             </div>
-            <div class="col-11">{{notification.profile_name}}</div>
+            <div class="col-11 py-2">{{user.name}} {{user.lastName}}</div>
           </div>
           }
         </div>
