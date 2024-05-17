@@ -92,5 +92,6 @@ export class NavbarComponent {
 interface UserData {
   name: string;
   lastName: string;
+  id: number;
   // otras propiedades si las hay
 }

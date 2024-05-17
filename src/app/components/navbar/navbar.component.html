@@ -111,7 +111,7 @@
               height="40"
               class="rounded-circle">-->
             </div>
-            <div class="col-11 py-2">{{user.name}} {{user.lastName}}</div>
+            <a [routerLink]="['/profile', user.id]">{{user.name}} {{user.lastName}}</a>
           </div>
           }
         </div>
