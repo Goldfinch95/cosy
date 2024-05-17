@@ -56,9 +56,12 @@ export class NavbarComponent {
 
   filteredNotifications: UserData[] = [];
   data: UserData[] = [];
-
   constructor(private http: HttpClient){
     
+  }
+
+  assignValue(name: string, lastName: string) {
+    this.inputSearchValue = `${name} ${lastName}`;
   }
 
   onEnter(){
@@ -68,6 +71,7 @@ export class NavbarComponent {
     this.fetchUsers();
      this.filteredNotifications = this.data.filter( userData => userData.name.toLowerCase().includes(this.inputSearchValue.toLowerCase()) ||
      userData.lastName.toLowerCase().includes(this.inputSearchValue.toLowerCase()));
+     
      console.log(this.filteredNotifications)
 
     /*} else {
@@ -83,6 +87,7 @@ export class NavbarComponent {
       this.data = await lastValueFrom(this.http.get<any>('http://localhost:13000/users/allProfiles', { headers: { "Authorization": `Bearer ${token}` } }));
       
       console.log(this.data)
+
     } catch (error: any) {
       console.error('Error fetching users:', error);
     }
@@ -93,5 +98,6 @@ interface UserData {
   name: string;
   lastName: string;
   id: number;
+  profile_image: string;
   // otras propiedades si las hay
 }
