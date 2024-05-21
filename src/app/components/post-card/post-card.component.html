@@ -68,8 +68,14 @@
           </div>
           <div class="col d-flex justify-content-center">
             <button type="button" (click)="onClickComment()" class="btn text-white">
-              <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
-              Comentarios
+              @if (comments.length === 0) {
+                <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
+                Comentarios
+              }
+              @else {
+                <fa-icon [icon]="faComments" style="color: #f0f2f5"></fa-icon>
+               Comentarios {{comments.length}}
+              }
             </button>
           </div>
         </div>
