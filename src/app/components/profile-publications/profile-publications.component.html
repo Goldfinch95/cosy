@@ -6,9 +6,20 @@
     class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative"
   >
     <h5 class="card-title text-white fw-bolder fs-2 p-3">Publicaciones:</h5>
-    <p class="card-text text-white ps-3 pt-1 fs-5">
-      
-    </p>
+    @for (publication of profilePublications; track $index) {
+      @if(publication.fullname === this.profileData.name + ' ' + this.profileData.lastName){
+        
+          <app-post-card
+          [profileData]="profileData"
+          [profileImg]="publication.profile_image"
+          [profileName]="publication.fullname"
+          [postData]="publication.content"
+          [postLike]="publication.post_like"
+          [comments]="publication.comments"
+          [publicationId]="publication.id"></app-post-card>
+          {{publication.comment}}
+      }
+    }
     <div class="ps-lg-3 py-3">
       <p class="card-text text-white py-1">
       </p>

@@ -23,10 +23,11 @@ export class HomeComponent {
   async ngOnInit(): Promise<void> {
     // Coloca aquí el código que deseas ejecutar al inicializar el componente
     const token = localStorage.getItem('token')
-    let {name, lastName, profile_image}: any = await lastValueFrom(this.http.get('http://localhost:13000/users/profile', {headers: {"Authorization": `Bearer ${token}`}}));
-    this.profileData = {name, lastName, profile_image}
+    let {name, lastName, profile_image, id}: any = await lastValueFrom(this.http.get('http://localhost:13000/users/profile', {headers: {"Authorization": `Bearer ${token}`}}));
+    this.profileData = {name, lastName, profile_image, id}
     if(this.profileData.profile_image === '/images/user.png'){
       this.profileData.profile_image = 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
     }
+    console.log(this.profileData)
   }
 }

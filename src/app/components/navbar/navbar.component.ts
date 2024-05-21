@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -28,7 +28,7 @@ export class NavbarComponent {
   faSearch = faSearch;
 
   inputSearchValue = "";
-  
+  @Input() profileData: any;
 
   notifications = [
     {
