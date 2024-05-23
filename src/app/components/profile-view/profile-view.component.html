@@ -1,20 +1,22 @@
 <div class="card rounded rounded-5 p-lg-4 sticky-top" style="width: 100%; height: 4.5%; top: 100px">
   <div
-    class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative"
+    class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative d-flex"
   >
-  <div>
-    <h5 class="card-title text-white fw-bolder fs-2 pb-2">Detalles:</h5>
+  <div class="d-flex flex-column justify-content-evenly">
     <div>
     @if (profileData.description != null) {
-    <div class="row pb-3">
+    <div class="row">
       <div class="col">
-        <p class="card-text text-white fs-5">
+        <p class="card-text text-white" style="font-size: 30px; padding-bottom: 20%; ">
           {{ profileData.description }}
         </p>
       </div>
     </div>
     }
   </div>
+  <div class="row d-flex justify-content-center data" style="
+  padding-bottom: 15%;
+">
     <div class="row py-2 text-white">
       <div class="col ps-2">
         @if(profileData.address != null){
@@ -93,6 +95,7 @@
             }
       </div>
     </div>
+  </div>
   </div>
     </div>
     
