@@ -22,3 +22,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
+
+.modal-backdrop {
+    --bs-backdrop-zindex: 2000; /* Modifica el valor del z-index */
+    --bs-backdrop-bg: rgba(0, 0, 0, 0.7); /* Modifica el color de fondo */
+    --bs-backdrop-opacity: 0.5; /* Modifica la opacidad */
+
+    /* Resto de estilos */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bs-backdrop-bg);
+    opacity: var(--bs-backdrop-opacity);
+}

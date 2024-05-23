@@ -24,7 +24,7 @@
                 "https://cdn-icons-png.flaticon.com/512/149/149071.png" ){
                 <div
                   class="rounded border border-3 border-info rounded-5 h-100"
-                  style="background-color: #556080"
+                  style="border: 5px solid rgb(217 217 217 / 10%)"
                 >
                   <img
                     src="{{ profileData.profile_image }}"
@@ -58,12 +58,12 @@
             </div>
             <div class="row g-0">
               <div
-                class="col d-flex justify-content-center align-items-center py-4"
+                class="col d-flex justify-content-center py-4"
               >
-                <app-profile-view [profileData]="profileData" />
+                <app-profile-view [profileData]="profileData"  style="width: 80%;"/>
               </div>
               <div
-                class="col d-flex justify-content-center align-items-center py-4"
+                class="col d-flex justify-content-center align-items-center"
               >
                 <app-profile-publications [profileData]="profileData" />
               </div>

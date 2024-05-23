@@ -2,6 +2,7 @@
     background-color: #36506C;
 }
 
+
 .card_overlay {
     top: 76%;
     left: 80%;
@@ -29,8 +30,8 @@
 }
 
 .card_details_overlay{
-    top: 82%;
-    left: 84%;
+    top: 85%;
+    left: 86.5%;
 }
 
 input{
@@ -44,3 +45,4 @@ input{
 input::placeholder{
     color: #ffff;
 }
+
