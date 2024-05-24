@@ -71,9 +71,7 @@ export class NavbarComponent {
     this.fetchUsers();
      this.filteredNotifications = this.data.filter( userData => userData.name.toLowerCase().includes(this.inputSearchValue.toLowerCase()) ||
      userData.lastName.toLowerCase().includes(this.inputSearchValue.toLowerCase()));
-     
-     console.log(this.filteredNotifications)
-
+     console.log(this.profileData, this.filteredNotifications)
     /*} else {
       this.filteredNotifications = this.notifications.filter(notification =>
         notification.profile_name.toLowerCase().includes(this.inputSearchValue.toLowerCase())
@@ -85,8 +83,6 @@ export class NavbarComponent {
     try {
       const token = localStorage.getItem('token');
       this.data = await lastValueFrom(this.http.get<any>('http://localhost:13000/users/allProfiles', { headers: { "Authorization": `Bearer ${token}` } }));
-      
-      console.log(this.data)
 
     } catch (error: any) {
       console.error('Error fetching users:', error);

@@ -21,8 +21,6 @@ export class ProfilePublicationsComponent {
   async ngOnInit(): Promise<void> {
     const token = localStorage.getItem('token');
     const data = await lastValueFrom(this.http.get('http://localhost:13000/publications', {headers: {"Authorization": `Bearer ${token}`}}));
-    console.log(data)
-    console.log(this.profileData.name, this.profileData.lastName)
     this.profilePublications = data;
   }
 

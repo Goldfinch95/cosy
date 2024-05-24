@@ -31,7 +31,7 @@ export class ProfileViewComponent {
 
   async ngOnInit(): Promise<void> {
     // Código que deseas ejecutar cuando el componente se inicializa
-    console.log('El componente se ha inicializado.');
+    
   }
  
 }
