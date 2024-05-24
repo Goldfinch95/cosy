@@ -1,0 +1,24 @@
+<div
+  class="card rounded rounded-5 border-0 pt-0"
+  style="width: 100%;"
+>
+  <div
+    class="card-body rounded rounded-5 p-lg-3 m-lg-1 position-relative py-2"
+  >
+    @for (publication of userProfilePublications; track $index) {
+      @if(publication.fullname === this.userProfile.name + ' ' + this.userProfile.lastName){
+        
+          <app-post-card
+          [profileData]="userProfile"
+      [profileImg]="publication.profile_image"
+      [profileName]="publication.fullname"
+      [postData]="publication.content"
+      [postImg]="publication.image"
+      [postLike]="publication.post_like"
+      [comments]="publication.comments"ng 
+      [publicationId]="publication.id"></app-post-card>
+          {{publication.comment}}
+      }
+    }
+  </div>
+</div>

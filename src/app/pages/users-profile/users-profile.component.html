@@ -58,14 +58,14 @@
             </div>
             <div class="row g-0">
               <div
-                class="col d-flex justify-content-center align-items-center py-4"
+                class="col d-flex justify-content-center py-4"
               >
-                <app-users-profile-view [userProfile]="userProfile" />
+                <app-users-profile-view [userProfile]="userProfile" style="width: 80%;" />
               </div>
               <div
-                class="col d-flex justify-content-center align-items-center py-4"
+                class="col d-flex justify-content-center align-items-center"
               >
-                <app-profile-publications />
+                <app-users-publications [userProfile]="userProfile"/>
               </div>
             </div>
           </div>
@@ -74,3 +74,5 @@
     </div>
   </div>
 </div>
+
+

@@ -1,99 +1,107 @@
-<div class="card rounded rounded-5 p-lg-4" style="width: 30rem; height: 30rem">
-    <div
-      class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative"
-    >
+<div class="card rounded rounded-5 p-lg-4 sticky-top" style="width: 100%; top: 100px">
+  <div
+    class="card-body rounded rounded-5 border border-3 border-info p-lg-3 m-lg-1 position-relative d-flex"
+  >
+  <div class="d-flex flex-column justify-content-evenly">
     <div>
-      <h5 class="card-title text-white fw-bolder fs-2 pb-2">Detalles:</h5>
-      <div>
-      @if (userProfile.description != null) {
-      <div class="row pb-3">
-        <div class="col">
-          <p class="card-text text-white fs-5">
-            {{ userProfile.description }}
-          </p>
-        </div>
+    @if (userProfile.description != null) {
+    <div class="row">
+      <div class="col">
+        <p class="card-text text-white" style="font-size: 30px; padding-bottom: 20%; ">
+          {{ userProfile.description }}
+        </p>
       </div>
-      }
     </div>
-      <div class="row py-2 text-white">
-        <div class="col ps-2">
-          @if(userProfile.address != null){
+    }
+  </div>
+  <div class="row d-flex justify-content-center data" style="
+  padding-bottom: 15%;
+">
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+        @if(userProfile.address != null){
+        <p class="card-text py-1">
+          <fa-icon
+            [icon]="faAddressBook"
+            class="fa-lg"
+            style="color: #f0f2f5"
+          ></fa-icon>
+          {{ userProfile.address }}
+        </p>
+        }
+      </div>
+      <div class="col p-0">
+        @if(userProfile.work != null){
+        <p class="card-text  py-1">
+          <fa-icon
+            [icon]="faBriefcase"
+            class="fa-lg"
+            style="color: #f0f2f5"
+          ></fa-icon>
+          {{ userProfile.work }}
+        </p>
+        }
+      </div>
+    </div>  
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+          @if(userProfile.birthdate != null){
           <p class="card-text py-1">
             <fa-icon
-              [icon]="faAddressBook"
+              [icon]="faCalendar"
               class="fa-lg"
-              style="color: #f0f2f5"
+              style="color: #f0f2f5; width: 100%"
             ></fa-icon>
-            {{ userProfile.address }}
+            {{ userProfile.birthdate }}
           </p>
           }
-        </div>
-        <div class="col p-0">
-          @if(userProfile.work != null){
+      </div>
+      <div class="col p-0">
+          @if(userProfile.school != null){
           <p class="card-text  py-1">
             <fa-icon
-              [icon]="faBriefcase"
+              [icon]="faSchool"
               class="fa-lg"
-              style="color: #f0f2f5"
+              style="color: #f0f2f5; width: 100%"
             ></fa-icon>
-            {{ userProfile.work }}
+            {{ userProfile.school }}
           </p>
           }
-        </div>
-      </div>  
-      <div class="row py-2 text-white">
-        <div class="col ps-2">
-            @if(userProfile.birthdate != null){
+      </div>
+    </div>  
+    <div class="row py-2 text-white">
+      <div class="col ps-2">
+            @if(userProfile.genre != null){
             <p class="card-text py-1">
               <fa-icon
-                [icon]="faCalendar"
+                [icon]="faMarsAndVenus"
                 class="fa-lg"
                 style="color: #f0f2f5; width: 100%"
               ></fa-icon>
-              {{ userProfile.birthdate }}
+              {{ userProfile.genre }}
             </p>
             }
-        </div>
-        <div class="col p-0">
-            @if(userProfile.school != null){
+      </div>
+      <div class="col p-0">
+            @if(userProfile.country != null){
             <p class="card-text  py-1">
               <fa-icon
-                [icon]="faSchool"
+                [icon]="faEarthAmericas"
                 class="fa-lg"
                 style="color: #f0f2f5; width: 100%"
               ></fa-icon>
-              {{ userProfile.school }}
+              {{ userProfile.country }}
             </p>
             }
-        </div>
-      </div>  
-      <div class="row py-2 text-white">
-        <div class="col ps-2">
-              @if(userProfile.genre != null){
-              <p class="card-text py-1">
-                <fa-icon
-                  [icon]="faMarsAndVenus"
-                  class="fa-lg"
-                  style="color: #f0f2f5; width: 100%"
-                ></fa-icon>
-                {{ userProfile.genre }}
-              </p>
-              }
-        </div>
-        <div class="col p-0">
-              @if(userProfile.country != null){
-              <p class="card-text  py-1">
-                <fa-icon
-                  [icon]="faEarthAmericas"
-                  class="fa-lg"
-                  style="color: #f0f2f5; width: 100%"
-                ></fa-icon>
-                {{ userProfile.country }}
-              </p>
-              }
-        </div>
       </div>
     </div>
-      </div>
   </div>
-  
+  </div>
+    </div>
+    
+    
+    
+    
+</div>
+
+

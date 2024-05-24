@@ -7,11 +7,12 @@ import { ProfilePublicationsComponent } from '../../components/profile-publicati
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { UsersProfileViewComponent } from '../../components/users-profile-view/users-profile-view.component';
+import { UsersPublicationsComponent } from '../users-publications/users-publications.component';
 
 @Component({
   selector: 'app-users-profile',
   standalone: true,
-  imports: [NavbarComponent, SidebarComponent, UsersProfileViewComponent , ProfilePublicationsComponent, HttpClientModule],
+  imports: [NavbarComponent, SidebarComponent, UsersProfileViewComponent , ProfilePublicationsComponent, UsersPublicationsComponent, HttpClientModule],
   templateUrl: './users-profile.component.html',
   styleUrls: ['./users-profile.component.css']
 })
